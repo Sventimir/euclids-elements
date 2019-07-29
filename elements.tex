@@ -1,0 +1,59 @@
+\documentclass[12pt, a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[polish]{babel}
+\usepackage[margin=25mm]{geometry}
+\usepackage{fancyhdr}
+\usepackage{tikz}
+\usepackage{style}
+
+\title{Wybrane twierdzenia z ,,Elementów'' Euklidesa}
+\author{Marcin Pastudzki}
+\date{\today}
+
+\makeatletter
+\let\inserttitle\@title
+\makeatother
+
+\pagestyle{fancy}
+\setlength{\headheight}{15pt}
+\rhead{oprac. Marcin Pastudzki}
+\lhead{\inserttitle}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5mm}
+
+\begin{document}
+
+\section*{Księga I}
+\subsection*{Twierdzenie I}
+
+Dany jest odcinek $AB$. Należy skonstruować \emph{trójkąt równoboczny} o
+podstawie $AB$.
+
+\begin{figure}[h!]
+    \begin{center}
+      \begin{tikzpicture}
+          \draw (0,0) node [anchor=east] {A} -- (2,0) node [anchor=west] {B};
+          \draw (2,0) circle (2);
+          \draw (0,0) circle (2);
+          \draw (-2,0) node [anchor=east] {D};
+          \draw (4,0) node [anchor=east] {E};
+          \draw (0,0) -- (1,1.73) node [anchor=south] {C} -- (2,0);
+      \end{tikzpicture}
+    \end{center}
+\end{figure}
+
+\begin{enumerate}
+    \item Narysować okrąg o środku A i promieniu $|AB|$ (post. 3.).
+    \item Narysować okrąg o środku B i promieniu $|AB|$ (post. 3.).
+    \item Niech punkt przecięcia okręgów nazywa się $C$.
+    \item Odcinki $AB$, $AC$ i $BC$ tworzą trójkąt równoboczny (post. 1.).
+\end{enumerate}
+
+\textbf{Dowód}:
+
+Ponieważ punkty $A$ i $C$ leżą na tym samym okręgu o środku $B$, zatem $|BA| = |BC|$.
+Podobnie punkty $B$ i $C$ leżą na tym samym okręgu o środku $A$, zatem $|AB| = |AC|$.
+Zatem $|AB| = |BC| = |AC|$, \emph{q.e.d.}
+\end{document}
