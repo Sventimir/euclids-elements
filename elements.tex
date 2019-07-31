@@ -25,6 +25,103 @@
 
 \begin{document}
 
+\section*{Rys historyczny}
+
+Początki zajmowania się liczbami i geometrią w basenie Morza Śródziemnego wiąże
+się przeważnie z Mezopotamią i Egiptem. Istotnie, tak Babilończycy, jak i
+Egipcjanie potrafili obliczać różne rzeczy, szczególnie zaś pola i objętości
+rozmaitych figur, a także prowadzili tablice astronomiczne. Nie zajmowali się
+oni jednak matematyką dla samej matematyki --- przeciwnie, miała ona dla nich
+charakter wysoce użytkowy.
+
+Potrzebna była przede wszystkim inżynierom do wznoszenia budowli oraz urzędnikom
+do inwentaryzacji magazynów, handlu czy rozdzielania pracy oraz dostępnych
+zasobów. Z tego względu rachunki były tylko na tyle dokładne, aby budowle się
+nie zawalały, opracowywano je na ogół metodą prób i błędów, a podawano w
+formie przepisów, wyjaśniających krok po kroku, jak otrzymać żądany wynik.
+Przyjmowano je tak długo, jak były wystarczająco skuteczne, bez żadnego
+wyjaśnienia czy dowodu poprawności. Do tego stopnia było to dowolne i
+nieformalne, że panuje opinia, wyrażona po raz pierwszy przez D. Knutha, że
+bardziej niż z proto-matematyką mamy tu do czynienia z proto-informatyką, a
+dokładniej z tworzeniem pierwszych algorytmów.
+
+Za przykład niech posłuży okrąg. Patrząc nań, i rozumiejąc podobieństwo (które
+to pojęcie wprowadzili jednak do geometrii dopiero Grecy), łatwo dojść do
+przekonania, że długość okręgu powinna być proporcjonalna do jego średnicy
+(i w konsekwencji -- promienia). Babilończycy również to rozumieli, a stosunek
+długości okręgu do średnicy, który dziś oznaczamy grecką literą $\pi$,
+oszacowali na liczbę $3$. Mówiąc dzisiejszym językiem, obliczali oni długość
+okręgu ze wzoru: $l = 2 \cdot 3r$ (gdzie $r$ to promień okręgu). Spróbujmy
+rozważyć konsekwencje tego faktu:
+
+\begin{figure}[h!]
+    \begin{center}
+      \begin{tikzpicture}
+          \draw (0,0) circle (3);
+          \draw (-3,0) -- (3, 0);
+          \draw (-1.5,2.6) -- (1.5,-2.6);
+          \draw (-1.5,-2.6) -- (1.5,2.6);
+          \draw (-3,0) -- (-1.5,2.6) -- (1.5,2.6) -- (3,0) -- (1.5,-2.6) --
+              (-1.5,-2.6) -- cycle;
+          \draw (1.5,0) node [anchor=south] {$r$};
+      \end{tikzpicture}
+      \caption{Porównanie obwodu koła i sześciokąta foremnego.}
+  \end{center}
+\end{figure}
+
+Ponieważ wielokąt foremny jest wpisany w okrąg, przeto odcinki łączące środek
+okręgu z wierzchołkami wielokąta tworzą równe kąty. Skoro tak, to każdy z nich
+ma miarę: $\frac{360^\circ}{6} = 60^\circ$. Wynika z tego, że wszystkie
+narysowane powyżej trójkąty są równoboczne, a zatem bok sześciokąta ma tę samą
+długość co promień okręgu. W związku z tym, obwód sześciokąta ma długość $6r$,
+tak samo jak okrąg, choć z rysunku gołym okiem widać, że obwód okręgu musi być
+większy.
+
+Z tabliczek babilońskich wynika, że ich autorzy byli świadomi tego faktu, jednak
+w niczym nie przeszkadzało im to nadal posługiwać się przybliżeniem $\pi
+\approx 3$, które to przybliżenie nawiasem mówiąc dla większości celów
+związanych z budownictwem jest zupełnie wystarczające.
+
+Matematykę w takim sensie, w jakim dziś ją pojmujemy, wymyślili dopiero
+starożytni Grecy, i to jak się wydaje, wymyślili ją jako jedyni w dziejach.
+Wszystkie inne kultury na Ziemi, o ile zajmowały się w ogóle matematyką, albo
+odziedziczyły ją po starożytnych Grekach, albo robiły to na sposób babiloński,
+lub też, jak Hindusi i Arabowie, zajmowały się zagadkami logicznymi, jednak bez
+żadnych prób traktowania ich w sposób naukowy lub wyciągania z nich wniosków na
+temat otaczającego świata. Nieliczni tylko Arabowie, zresztą pod wpływem lektury
+starożytnych Greków, zajmowali się matematyką w greckim sensie, choć wprowadzili
+oni szereg użytecznych innowacji.
+
+Podejście greckie było o tyle różne, że Grecy mieli ambicję osiągnąć wiedzę
+pewną. Zamiast zatem obserwować świat i drogą indukcji budować zasady
+nim rządzące (która to metoda w sposób oczywisty obarczona jest niepewnością
+co do osiąganych rezultatów), przyjmowali arbitralne założenia i z nich drogą
+dedukcji wyprowadzali prawa, które jako oparte na logicznym rozumowaniu, miały
+charakter pewny, przynajmniej tak długo, jak spełnione były początkowe
+założenia. Nie inaczej matematykę i w ogóle naukę (a przynajmniej niektóre jej
+dyscypliny) uprawia się i dzisiaj.
+
+Najdoskonalszy w starożytności wyraz ta dedukcyjna metoda dochodzenia do wiedzy
+pewnej osiągnęła właśnie w ,,\emph{Elementach}'' Euklidesa. Aż do XIX w to
+Euklides był dla matematyków wzorem tego, jak należy konstruować teorię
+matematyczną, jak formułować aksjomaty, a następnie wyprowadzać z nich
+twierdzenia. O samym autorze wiadomo niewiele. Żył pod koniec IV w p.n.e.,
+w schyłkowym już okresie matematyki greckiej. Większość dowiedzionych w
+,,\emph{Elementach}'' twierdzeń była znana Grekom już wcześniej, jednak zasługa
+Euklidesa polega na zebraniu ich razem i oparciu na jednym, zwięzłym zestawie
+aksjomatów. W pewnym sensie jest to apogeum greckiej myśli matematycznej,
+chociaż po Euklidesie tworzyli jeszcze tacy znakomici matematycy jak Archimedes,
+którego prace nawiasem mówiąc mają z reguły formę podobną do ,,\emph{Elementów}''.
+
+Był to jednak już schyłek. Wraz z podbojem Grecji przez Rzymian rozwój
+matematyki ustał praktycznie (pomijąc wkład nielicznych matematyków arabskich)
+na okres ponad tysiąca lat i wznowiony został dopiero u schyłku Średniowiecza.
+Dobitnym, acz smutnym tego symbolem może być fakt, że oryginalny tekst
+,,\emph{Elementów}'' (podobnie jak wielu innych dzieł starożytnych) nie dotrwał
+do naszych czasów --- znamy to dzieło wyłącznie z przekładów na język arabski.
+
+\pagebreak
+
 \section*{Księga I}
 \subsection*{Twierdzenie I}
 
