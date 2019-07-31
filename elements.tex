@@ -45,15 +45,21 @@ podstawie $AB$.
 \end{figure}
 
 \begin{enumerate}
-    \item Narysować okrąg o środku A i promieniu $|AB|$ (post. 3.).
-    \item Narysować okrąg o środku B i promieniu $|AB|$ (post. 3.).
-    \item Niech punkt przecięcia okręgów nazywa się $C$.
-    \item Odcinki $AB$, $AC$ i $BC$ tworzą trójkąt równoboczny (post. 1.).
+    \item Narysować okrąg o środku A i promieniu $|AB|$ \post{3}.
+    \item Narysować okrąg o środku B i promieniu $|AB|$ \post{3}.
+    \item Niech punkt przecięcia okręgów nazywa się $C$\footnote{
+        Oczywiście są dwa takie punkty. Każdy z nich równie dobrze może posłużyć
+        za punkt $C$.
+    }.
+    \item Odcinki $AB$, $AC$ i $BC$ tworzą trójkąt równoboczny \post{1}.
 \end{enumerate}
 
-\textbf{Dowód}:
+\proof {
+    Ponieważ punkty $A$ i $C$ leżą na tym samym okręgu o środku $B$, zatem $|BA| =
+    |BC|$ \defin{1.15}.
+    Podobnie punkty $B$ i $C$ leżą na tym samym okręgu o środku $A$, zatem $|AB| =
+    |AC|$ \defin{1.15}.
+    Zatem $|AB| = |BC| = |AC|$ \axiom{1}.
+}
 
-Ponieważ punkty $A$ i $C$ leżą na tym samym okręgu o środku $B$, zatem $|BA| = |BC|$.
-Podobnie punkty $B$ i $C$ leżą na tym samym okręgu o środku $A$, zatem $|AB| = |AC|$.
-Zatem $|AB| = |BC| = |AC|$, \emph{q.e.d.}
 \end{document}
