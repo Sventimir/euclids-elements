@@ -10,8 +10,25 @@
     #1 \qed
 }
 
-\newcommand{\defin}[1]{(definicja #1.)}
-\newcommand{\post}[1]{(postulat #1.)}
-\newcommand{\common}[1]{(o.z. #1.)}
+\newcounter{definition}
+\newcounter{postulate}
+\newcounter{common}
+
+\newcommand{\mkdef}{
+    \stepcounter{definition}
+    \hypertarget{definition-\arabic{definition}}{}
+}
+\newcommand{\mkpost}{
+    \stepcounter{postulate}
+    \hypertarget{postulate-\arabic{postulate}}{}
+}
+\newcommand{\mkcommon}{
+    \stepcounter{common}
+    \hypertarget{common-\arabic{common}}{}
+}
+
+\newcommand{\defin}[1]{(\hyperlink{definition-#1}{definicja #1.})}
+\newcommand{\post}[1]{(\hyperlink{postulate-#1}{postulat #1.})}
+\newcommand{\common}[1]{(\hyperlink{common-#1}{o.z. #1.})}
 
 \newcommand{\bold}[1]{\textbf{#1}}
