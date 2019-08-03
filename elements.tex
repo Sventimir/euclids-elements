@@ -105,13 +105,16 @@ Najdoskonalszy w starożytności wyraz ta dedukcyjna metoda dochodzenia do wiedz
 pewnej osiągnęła właśnie w ,,\emph{Elementach}'' Euklidesa. Aż do XIX w to
 Euklides był dla matematyków wzorem tego, jak należy konstruować teorię
 matematyczną, jak formułować aksjomaty, a następnie wyprowadzać z nich
-twierdzenia. O samym autorze wiadomo niewiele. Żył pod koniec IV w p.n.e.,
-w schyłkowym już okresie matematyki greckiej. Większość dowiedzionych w
-,,\emph{Elementach}'' twierdzeń była znana Grekom już wcześniej, jednak zasługa
-Euklidesa polega na zebraniu ich razem i oparciu na jednym, zwięzłym zestawie
-aksjomatów. W pewnym sensie jest to apogeum greckiej myśli matematycznej,
-chociaż po Euklidesie tworzyli jeszcze tacy znakomici matematycy jak Archimedes,
-którego prace nawiasem mówiąc mają z reguły formę podobną do ,,\emph{Elementów}''.
+twierdzenia. O samym autorze wiadomo niewiele. Żył Aleksandrii pod koniec IV w
+p.n.e., w schyłkowym już okresie matematyki greckiej. Kierował tamtejszym
+muzeum, którego częścią była słynna Biblioteka, jeden z Siedmiu Cudów Świata
+Starożytnego. Większość dowiedzionych w ,,\emph{Elementach}'' twierdzeń była
+znana Grekom już wcześniej, jednak zasługa Euklidesa polega na zebraniu ich
+razem i oparciu na jednym, zwięzłym zestawie aksjomatów. W pewnym sensie jest to
+apogeum greckiej myśli matematycznej, chociaż po Euklidesie tworzyli jeszcze
+tacy znakomici matematycy jak Archimedes, którego prace nawiasem mówiąc mają z
+reguły formę podobną do ,,\emph{Elementów}'', to znaczy zaczynają się od
+definicji i postulatów, z których następnie wyprowadzane są kolejne twierdzenia.
 
 Był to jednak już schyłek. Wraz z podbojem Grecji przez Rzymian rozwój
 matematyki ustał praktycznie (pomijąc wkład nielicznych matematyków arabskich)
@@ -179,6 +182,54 @@ do naszych czasów --- znamy to dzieło wyłącznie z przekładów na język ara
 
 \section*{Postulaty}
 
+\begin{enumerate}
+    \itemsep0em
+    \item Niech będzie uznane za fakt, że można narysować prostą linię z
+        dowolnego punktu do dowolnego innego punktu.
+    \item Oraz że tak narysowaną prostą linię można przedłużać w nieskończoność.
+    \item A także, że można narysować okrąg o dowolnym środku i promieniu,
+    \item Że wszystkie kąty proste są równe.
+    \item Oraz że jeżeli linia prosta przecinając dwie inne linie proste,
+        tworzy po tej samej jej stronie wewnętrzne kąty, których suma jest
+        mniejsza od dwóch kątów prostych, wówczas dwie pozostałe linie
+        przedłużane w nieskończoność, przetną się po tej właśnie
+        stronie\footnote{
+            Postulat ten odróżnia geometrię płaską (euklidesową) od geometrii
+            nieeukldesowych. O ile bowiem postulat ten jest spełniony na
+            płaszczyźnie, o tyle na przykład na powierzchni kuli o tym, czy
+            linie się przetną decyduje więcej czynników niż sama tylko suma
+            kątów wewnętrznych.
+        }.
+\end{enumerate}
+
+\begin{figure}[!h]
+    \begin{center}
+        \begin{tikzpicture}
+            \draw (0,0) -- (10,2);
+            \draw (0,4) -- (10,3);
+            \draw (5,0) -- (5,4);
+            \draw (5,1.5) arc (90:10:0.5);
+            \draw (5,3) arc (-90:-5:0.5);
+            \draw [dashed] (10,2) -- (15,3);
+            \draw [dashed] (10,3) -- (15,2.5);
+        \end{tikzpicture}
+    \end{center}
+\end{figure}
+
+\section*{Ogólne założenia}
+
+\begin{enumerate}
+    \itemsep0em
+    \item Dwie rzeczy równe innej rzeczy, są także równe sobie nawzajem.
+    \item Jeżeli do równych dodajemy równe, to otrzymane całości są równe.
+    \item Jeżeli zaś od równych rzeczy odejmujemy równe, to pozostałości są
+        nadal równe.
+    \item Rzeczy pokrywające się wzajemnie są równe.
+    \item Całość jest większa od części.
+\end{enumerate}
+
+\pagebreak
+
 \section*{Księga I}
 \subsection*{Twierdzenie I}
 
@@ -213,7 +264,7 @@ podstawie $AB$.
     |BC|$ \defin{1.15}.
     Podobnie punkty $B$ i $C$ leżą na tym samym okręgu o środku $A$, zatem $|AB| =
     |AC|$ \defin{1.15}.
-    Zatem $|AB| = |BC| = |AC|$ \axiom{1}.
+    Zatem $|AB| = |BC| = |AC|$ \common{1}.
 }
 
 \end{document}
