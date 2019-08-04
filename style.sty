@@ -24,6 +24,11 @@
 \setlist[postulates]{ref=posts-\arabic*}
 \setlist[commons]{ref=commons-\arabic*}
 
+\renewcommand*\partformat{\thepart\autodot}
+
+\renewcommand{\thepart}{Księga \Roman{part}}
+\renewcommand{\thesection}{Twierdzenie \Roman{section}}
+
 %% Commands
 
 \newcommand{\qed}{\emph{q.e.d.}}
