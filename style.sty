@@ -8,6 +8,24 @@
     urlcolor=cyan,
 }
 
+% Set standard fotns (Override scrartcl fontset).
+\setkomafont{disposition}{\normalfont\bfseries}
+
+\setlist{
+    label=\arabic*.,
+    noitemsep
+}
+
+\newlist{definitions}{enumerate}{1}
+\newlist{postulates}{enumerate}{1}
+\newlist{commons}{enumerate}{1}
+
+\setlist[definitions]{ref=defs-\protect\the\value{section}.\arabic*}
+\setlist[postulates]{ref=posts-\arabic*}
+\setlist[commons]{ref=commons-\arabic*}
+
+%% Commands
+
 \newcommand{\qed}{\emph{q.e.d.}}
 
 \newcommand{\proof}[1]{
@@ -16,25 +34,8 @@
     #1 \qed
 }
 
-\newcounter{definition}
-\newcounter{postulate}
-\newcounter{common}
-
-\newcommand{\mkdef}{
-    \stepcounter{definition}
-    \hypertarget{definition-\arabic{definition}}{}
-}
-\newcommand{\mkpost}{
-    \stepcounter{postulate}
-    \hypertarget{postulate-\arabic{postulate}}{}
-}
-\newcommand{\mkcommon}{
-    \stepcounter{common}
-    \hypertarget{common-\arabic{common}}{}
-}
-
-\newcommand{\defin}[1]{(\hyperlink{definition-#1}{definicja #1.})}
-\newcommand{\post}[1]{(\hyperlink{postulate-#1}{postulat #1.})}
-\newcommand{\common}[1]{(\hyperlink{common-#1}{o.z. #1.})}
+\newcommand{\defin}[1]{(definicja #1.)}
+\newcommand{\post}[1]{(postulat #1.)}
+\newcommand{\common}[1]{(o.z. #1.)}
 
 \newcommand{\bold}[1]{\textbf{#1}}
