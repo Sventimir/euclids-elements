@@ -311,4 +311,35 @@ Linia $DH$ jest żądanym odcinkiem; jest on równy odcinkowi $BC$.
     $AH = BG = BC$ \common{1}
 }
 
+\subsection*{Twierdzenie III}
+
+Gdy dane są dwa odcinki różnej długości, możeliwe jest odłożenie krótszego
+odcinka na dłuższym. Niech dłuższy odcinek nazywa się $AB$, a krótszy -- $CD$.
+
+\begin{figure}[h!]
+    \begin{center}
+        \begin{tikzpicture}
+            \draw (5,3) node [anchor=south] {C} -- (8,3) node [anchor=south] {D};
+            \draw (7,0) node [anchor=north] {B} -- (1,0) node [anchor=north] {A}
+                -- (-1.12,2.12) node [anchor=east] {E};
+            \draw (1,0) circle (3);
+            \draw (4,0) node [anchor=north] {F};
+        \end{tikzpicture}
+    \end{center}
+\end{figure}
+
+\begin{enumerate}
+    \item Skonstruować odcinek $AE$ równy odcinkowi $CD$ \prop{1.2}.
+    \item Skonstruować okrąg o środku $A$ i promieniu $AE$ \post{3}.
+    \item Niech punkt przecięcia tego okręgu z linią $AB$ nazywa się $F$.
+\end{enumerate}
+
+Otrzymany odcinek $AF$ jest równy odcinkowi $CD$.
+
+\proof{
+    Linie $AE$ i $AF$ są promieniami tego samego okręgu, zatem $AF = AE$. Linia
+    $AE$ jest ponadto równa linii $CD$, co wynika z konstrukcji \prop{1.2}.
+    Wobec tego $AF = AE = CD$ \common{3}
+}
+
 \end{document}
