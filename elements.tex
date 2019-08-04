@@ -1,6 +1,7 @@
 \documentclass[12pt, a4paper]{scrartcl}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
+\usepackage{amssymb}
 \usepackage[polish]{babel}
 \usepackage[margin=25mm]{geometry}
 \usepackage{fancyhdr}
@@ -187,8 +188,12 @@ do naszych czasów --- znamy to dzieło wyłącznie z przekładów na język ara
 \subsection*{Postulaty}
 
 \begin{postulates}
-    \item Niech będzie uznane za fakt, że można narysować prostą linię z
-        dowolnego punktu do dowolnego innego punktu.
+    \item Niech będzie uznane za fakt, że można narysować [dokładnie jedną]
+        prostą linię z dowolnego punktu do dowolnego innego punktu\footnote{
+            Słowa ,,dokładnie jedną'' nie znajdują się w tekście oryginalnym,
+            jednak Euklides najwyraźniej zakłada, że może istnieć tylko jedna
+            taka linia (patrz np. twierdzenie 1.4).
+        }.
     \item Oraz że tak narysowaną prostą linię można przedłużać w nieskończoność.
     \item A także, że można narysować okrąg o dowolnym środku i promieniu,
     \item Że wszystkie kąty proste są równe.
@@ -340,6 +345,46 @@ Otrzymany odcinek $AF$ jest równy odcinkowi $CD$.
     Linie $AE$ i $AF$ są promieniami tego samego okręgu, zatem $AF = AE$. Linia
     $AE$ jest ponadto równa linii $CD$, co wynika z konstrukcji \prop{1.2}.
     Wobec tego $AF = AE = CD$ \common{3}
+}
+
+\section{}
+
+Jeżeli trójkąt ma dwa boki równe odpowiednim bokom drugiego trójkąta, a kąty
+zawarte pomiędzy tymi bokami są równe, to całe trójkąty są
+\bold{przystające}\footnote{
+    Euklides nie używa tego pojęcia.
+}, to znaczy pozostałe boki oraz kąty pierwszego trójkąta muszą być równe
+odpowiednim bokom i kątom drugiego trójkąta.
+
+\begin{figure}[h!]
+    \begin{center}
+        \begin{tikzpicture}
+            \draw (2.5,3) node [anchor=south] {A} -- (3,0) node [anchor=west] {C}
+                -- (0,0) node [anchor=east] {B} -- cycle;
+            \draw (7.5,3) node [anchor=south] {D} -- (8,0) node [anchor=west] {F}
+                -- (5,0) node [anchor=east] {E} -- cycle;
+        \end{tikzpicture}
+    \end{center}
+\end{figure}
+
+Przyjmijmy zgodnie z tezą, że $AB = DE$, a $AC = DF$ oraz że
+$\measuredangle BAC = \measuredangle EDF$.
+
+\proof{
+    Jeżeli przyłożymy $\triangle DEF$ do $\triangle ABC$\footnote{
+        Euklides nigdzie nie wyjaśnia ani nie definiuje, co to znaczy przyłożyć
+        figurę do figury. Jest to luka w rozumowaniu. W istocie należałoby
+        możliwość przyłożenia figury do innej figury wraz z definicją dodać do
+        postulatów.
+    } tak, że punkt $D$ znajdzie się w miejscu punktu $A$, a bok $DE$ w miejscu
+    boku $AB$, to punkt $E$ nałoży się na punkt $B$. A ponieważ $\measuredangle
+    BAC = \measuredangle EDF$, to również bok $DF$ znajdzie się w miejscu boku
+    $AC$, a punkt $F$ nałoży się na punkt $C$.
+
+    W takim przypadku bok $EF$ musi nałożyć się na bok $BC$ \post{1}.
+    Wobec tego boki te muszą być równe \common{4}. Również pozostałe kąty
+    $\triangle DEF$ nałożą się na pozostałe kąty $\triangle ABC$, co oznacza,
+    że te kąty także będą odpowiednio równe \common{4}
 }
 
 \end{document}
