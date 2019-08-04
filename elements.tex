@@ -204,7 +204,7 @@ do naszych czasów --- znamy to dzieło wyłącznie z przekładów na język ara
         }.
 \end{postulates}
 
-\begin{figure}[!ht]
+\begin{figure}[!h]
     \begin{center}
         \begin{tikzpicture}
             \draw (0,0) -- (10,2);
@@ -236,7 +236,7 @@ do naszych czasów --- znamy to dzieło wyłącznie z przekładów na język ara
 Dany jest odcinek $AB$. Należy skonstruować \emph{trójkąt równoboczny} o
 podstawie $AB$.
 
-\begin{figure}[ht!]
+\begin{figure}[h!]
     \begin{center}
       \begin{tikzpicture}
           \draw (0,0) node [anchor=east] {A} -- (2,0) node [anchor=west] {B};
@@ -250,8 +250,8 @@ podstawie $AB$.
 \end{figure}
 
 \begin{enumerate}
-    \item Narysować okrąg o środku A i promieniu $|AB|$ \post{3}.
-    \item Narysować okrąg o środku B i promieniu $|AB|$ \post{3}.
+    \item Skonstruować okrąg o środku A i promieniu $|AB|$ \post{3}.
+    \item Skonstruować okrąg o środku B i promieniu $|AB|$ \post{3}.
     \item Niech punkt przecięcia okręgów nazywa się $C$\footnote{
         Oczywiście są dwa takie punkty. Każdy z nich równie dobrze może posłużyć
         za punkt $C$.
@@ -259,12 +259,56 @@ podstawie $AB$.
     \item Odcinki $AB$, $AC$ i $BC$ tworzą trójkąt równoboczny \post{1}.
 \end{enumerate}
 
-\proof {
+\proof{
     Ponieważ punkty $A$ i $C$ leżą na tym samym okręgu o środku $B$, zatem $|BA| =
     |BC|$ \defin{1.15}.
     Podobnie punkty $B$ i $C$ leżą na tym samym okręgu o środku $A$, zatem $|AB| =
     |AC|$ \defin{1.15}.
     Zatem $|AB| = |BC| = |AC|$ \common{1}
+}
+
+\subsection*{Twierdzenie II}
+
+Możliwe jest skonstruowanie odcinka równego danemu odcinkowi w zadanym punkcie
+(początkowym). Niech zadany punkt nazywa się $A$, zaś odcinek do powielenia
+niech nazywa się $BC$.
+
+\begin{enumerate}
+    \item Skonstruować prostą linię $AB$ \post{1}.
+    \item Skonstruować trójkąt równoboczny $ABD$ \prop{1.1}.
+    \item Przedłużyć prostą linię $AD$ do punktu $E$ oraz $BD$ do punktu $F$
+        \post{2}.
+    \item Skonstruować okrąg o środku $B$ i promieniu $BC$ \post{3}.
+    \item Niech punkt przecięcia tego okręgu z prostą $BF$ nazywa się $G$.
+    \item Skostruować okrąg o środku $D$ i propmieniu $DG$ \post{3}.
+    \item Punkt przecięcia tego okręgu z linią $DE$ niech nazywa się $H$.
+\end{enumerate}
+
+Linia $DH$ jest żądanym odcinkiem; jest on równy odcinkowi $BC$.
+
+\pagebreak
+\begin{figure}[h!]
+    \begin{center}
+        \begin{tikzpicture}
+            \draw (1,1) node [anchor=west] {B} -- (1,3) node [anchor=south] {C};
+            \draw (0,0) node [anchor=east] {A} -- (1,1) --
+                (-0.36,1.36) node [anchor=south] {D} -- cycle;
+            \draw (0,0) -- (0.77,-2.89) node [anchor=east] {E};
+            \draw (1,1) -- (3.89,0.22) node [anchor=west] {F};
+            \draw (1,1) circle (2);
+            \draw (2.93,0.48) node [anchor=west] {G};
+            \draw (-0.36,1.36) circle (3.41);
+            \draw (0.51,-1.93) node [anchor=east] {H};
+        \end{tikzpicture}
+    \end{center}
+\end{figure}
+
+\proof{
+    $BC$ i $BG$ są promieniami tego samego okręgu o środku $B$, zatem $BC = BG$
+    \defin{1.15}. Z kolei $DG$ i $DH$ są promieniami tego samego okręgu o środku
+    $D$, zatem $DG = DH$ \defin{1.15}. $DA = DB$, ponieważ są to boki trójkąta
+    równobocznego \prop{1.1}. Skoro tak, to $AH = BG$ \common{3}. A zatem
+    $AH = BG = BC$ \common{1}
 }
 
 \end{document}
