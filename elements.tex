@@ -9,6 +9,7 @@
 \usepackage{tikz}
 \usepackage{hyperref}
 \usepackage{style}
+\usepackage{python}
 
 \title{Elementarz Starożytnych Greków}
 \subtitle{Wybrane twierdzenia z ,,Elementów'' Euklidesa}
@@ -57,17 +58,35 @@ przekonania, że długość okręgu powinna być proporcjonalna do jego średnic
 długości okręgu do średnicy, który dziś oznaczamy grecką literą $\pi$,
 oszacowali na liczbę $3$. Mówiąc dzisiejszym językiem, obliczali oni długość
 okręgu ze wzoru: $l = 2 \cdot 3r$ (gdzie $r$ to promień okręgu). Spróbujmy
-rozważyć konsekwencje tego faktu (zob. rysunek \ref{fig:approxpi}).
+rozważyć konsekwencje tego faktu.
 
 \begin{figure}[ht!]
     \begin{center}
       \begin{tikzpicture}
-          \draw (0,0) circle (3);
-          \draw (-3,0) -- (3, 0);
-          \draw (-1.5,2.6) -- (1.5,-2.6);
-          \draw (-1.5,-2.6) -- (1.5,2.6);
-          \draw (-3,0) -- (-1.5,2.6) -- (1.5,2.6) -- (3,0) -- (1.5,-2.6) --
-              (-1.5,-2.6) -- cycle;
+          \begin{python}
+from geometric import *
+
+c = Point(0, 0)
+circle = Circle(c, 3)
+circle.draw()
+
+a = circle.find(Vector(-1, 0))
+b = circle.find(Vector(1, 0))
+
+sym_ac = symmetral(a, c)
+sym_bc = symmetral(c, b)
+
+d = sym_ac.find(a.dist(c) * math.sqrt(3.0) / 2.0)
+e = sym_bc.find(b.dist(c) * math.sqrt(3.0) / 2.0)
+f = sym_bc.find(b.dist(c) * math.sqrt(3.0) / (-2.0))
+g = sym_ac.find(a.dist(c) * math.sqrt(3.0) / (-2.0))
+
+Polygon(a, d, e, b, f, g).draw()
+draw_lines(a, b)
+draw_lines(d, f)
+draw_lines(e, g)
+          \end{python}
+
           \draw (1.5,0) node [anchor=south] {$r$};
       \end{tikzpicture}
       \caption{Porównanie obwodu koła i sześciokąta foremnego.}
@@ -75,13 +94,13 @@ rozważyć konsekwencje tego faktu (zob. rysunek \ref{fig:approxpi}).
   \end{center}
 \end{figure}
 
-Ponieważ wielokąt foremny jest wpisany w okrąg, odcinki łączące środek
-okręgu z wierzchołkami wielokąta tworzą równe kąty. Skoro tak, to każdy z nich
-ma miarę: $\frac{360^\circ}{6} = 60^\circ$. Wynika z tego, że wszystkie
-narysowane powyżej trójkąty są równoboczne, a zatem bok sześciokąta ma tę samą
-długość co promień okręgu. W związku z tym, obwód sześciokąta ma długość $6r$,
-tak samo jak okrąg, choć z rysunku gołym okiem widać, że obwód okręgu musi być
-większy.
+Spójrzmy na sześciokąt foremny wpisany w okrąg (rysunek \ref{fig:approxpi}).
+Odcinki łączące środek okręgu z wierzchołkami wielokąta tworzą równe kąty. Skoro
+tak, to każdy z nich ma miarę: $\frac{360^\circ}{6} = 60^\circ$. Wynika z tego,
+że wszystkie narysowane powyżej trójkąty są równoboczne, a zatem bok sześciokąta
+ma tę samą długość co promień okręgu. W związku z tym, obwód sześciokąta ma
+długość $6r$, tak samo jak okrąg, choć z rysunku gołym okiem widać, że obwód
+okręgu musi być większy.
 
 Z tabliczek babilońskich wynika, że ich autorzy byli świadomi tego faktu, jednak
 w niczym nie przeszkadzało im to nadal posługiwać się przybliżeniem $\pi
@@ -123,7 +142,7 @@ reguły formę podobną do ,,\emph{Elementów}'', to znaczy zaczynają się od
 definicji i postulatów, z których następnie wyprowadzane są kolejne twierdzenia.
 
 Był to jednak już schyłek. Wraz z podbojem Grecji przez Rzymian rozwój
-matematyki ustał praktycznie (pomijąc wkład nielicznych matematyków arabskich)
+matematyki ustał praktycznie (pomijając wkład nielicznych matematyków arabskich)
 na okres ponad tysiąca lat i wznowiony został dopiero w okresie Odrodzenia.
 Dobitnym, acz smutnym tego symbolem może być fakt, że oryginalny tekst
 ,,\emph{Elementów}'' (podobnie jak wielu innych dzieł starożytnych) nie dotrwał
