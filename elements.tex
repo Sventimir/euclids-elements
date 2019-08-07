@@ -73,13 +73,8 @@ circle.draw()
 a = circle.find(Vector(-1, 0))
 b = circle.find(Vector(1, 0))
 
-sym_ac = symmetral(a, c)
-sym_bc = symmetral(c, b)
-
-d = sym_ac.find(a.dist(c) * math.sqrt(3.0) / 2.0)
-e = sym_bc.find(b.dist(c) * math.sqrt(3.0) / 2.0)
-f = sym_bc.find(b.dist(c) * math.sqrt(3.0) / (-2.0))
-g = sym_ac.find(a.dist(c) * math.sqrt(3.0) / (-2.0))
+(d, g) = equilateral_triangle(a, c)
+(e, f) = equilateral_triangle(c, b)
 
 Polygon(a, d, e, b, f, g).draw()
 draw_lines(a, b)
@@ -264,12 +259,18 @@ podstawie $AB$.
 \begin{figure}[h!]
     \begin{center}
       \begin{tikzpicture}
-          \draw (0,0) node [anchor=east] {A} -- (2,0) node [anchor=west] {B};
-          \draw (2,0) circle (2);
-          \draw (0,0) circle (2);
-          \draw (-2,0) node [anchor=east] {D};
-          \draw (4,0) node [anchor=east] {E};
-          \draw (0,0) -- (1,1.73) node [anchor=south] {C} -- (2,0);
+\begin{python}
+    from geometric import *
+
+a = Point(0, 0, label='A', anchor='east')
+b = Point(2, 0, label='B', anchor='west')
+(_, c) = equilateral_triangle(a, b)
+c.set_label('C', anchor='south')
+
+Circle(a, a.dist(b)).draw()
+Circle(b, b.dist(a)).draw()
+Polygon(a, b, c).draw()
+          \end{python}
       \end{tikzpicture}
     \end{center}
 \end{figure}

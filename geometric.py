@@ -1,7 +1,11 @@
 import math
+import itertools
 
 def square(x):
     return x * x
+
+def list_bind(l, f):
+    itertools.chain(*(f(x) for x in l))
 
 class Vector:
 
@@ -29,6 +33,9 @@ class Point:
     def __init__(self, x, y, label=None, anchor=None):
         self.x = float(x)
         self.y = float(y)
+        self.set_label(label, anchor)
+
+    def set_label(self, label, anchor=None):
         self.anchor = anchor
         self.label = label
         self.is_label_displayed = False
@@ -115,3 +122,14 @@ def draw_lines(*points):
 def symmetral(a, b):
     segment = a.line_to(b)
     return segment.perpendicular(a.translate(segment.vector.scale(a.dist(b) / 2.0)))
+
+
+# Constructions:
+
+def equilateral_triangle(a, b):
+    ''' Given two points return all possible vertices of an equilateral triangle.'''
+    ab = a.line_to(b)
+    mid = a.translate(ab.vector.scale(a.dist(b) / 2.0))
+    h = ab.perpendicular(mid)
+    height = a.dist(b) * math.sqrt(3) / 2.0
+    return (mid.translate(h.vector.scale(height)), mid.translate(h.vector.scale(-height)))
