@@ -39,6 +39,7 @@ class Point:
         self.anchor = anchor
         self.label = label
         self.is_label_displayed = False
+        return self
 
     def translate(self, v):
         return self.__class__(self.x + v.x, self.y + v.y)

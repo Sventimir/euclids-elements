@@ -4,3 +4,5 @@ latex.py
 *.log
 *.out
 *.aux
+elements.synctex.gz
+__pycache__
