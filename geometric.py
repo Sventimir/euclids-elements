@@ -110,7 +110,7 @@ class Polygon:
         self.vertices = tuple(vertices)
 
     def translate(self, vector):
-        return self.__class__(v.translate(vector) for v in self.vertices)
+        return self.__class__(*(v.translate(vector) for v in self.vertices))
 
     def draw(self):
         print('\\draw {} -- cycle;'.format(' -- '.join(p.display() for p in self.vertices)))

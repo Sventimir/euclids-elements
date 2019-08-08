@@ -363,11 +363,22 @@ odcinka na dłuższym. Niech dłuższy odcinek nazywa się $AB$, a krótszy -- $
 \begin{figure}[h!]
     \begin{center}
         \begin{tikzpicture}
-            \draw (5,3) node [anchor=south] {C} -- (8,3) node [anchor=south] {D};
-            \draw (7,0) node [anchor=north] {B} -- (1,0) node [anchor=north] {A}
-                -- (-1.12,2.12) node [anchor=east] {E};
-            \draw (1,0) circle (3);
-            \draw (4,0) node [anchor=north] {F};
+            \begin{python}
+from geometric import *
+
+a = Point(2, 0, label='A', anchor='north')
+b = Point(6, 0, label='B', anchor='north')
+c = Point(5, 2, label='C', anchor='south')
+d = Point(7, 2, label='D', anchor='south')
+
+circ = Circle(a, c.dist(d))
+e = circ.find(Vector(-1, 2)).set_label('E', anchor='east')
+f = circ.find(a.line_to(b).vector).set_label('F', anchor='north')
+
+circ.draw()
+draw_lines(c, d)
+draw_lines(e, a, f, b)
+            \end{python}
         \end{tikzpicture}
     \end{center}
 \end{figure}
@@ -398,10 +409,22 @@ odpowiednim bokom i kątom drugiego trójkąta.
 \begin{figure}[h!]
     \begin{center}
         \begin{tikzpicture}
-            \draw (2.5,3) node [anchor=south] {A} -- (3,0) node [anchor=west] {C}
-                -- (0,0) node [anchor=east] {B} -- cycle;
-            \draw (7.5,3) node [anchor=south] {D} -- (8,0) node [anchor=west] {F}
-                -- (5,0) node [anchor=east] {E} -- cycle;
+            \begin{python}
+from geometric import *
+
+a = Point(2.5, 3, label='A', anchor='south')
+b = Point(0, 0, label='B', anchor='east')
+c = Point(3, 0, label='C', anchor='west')
+
+abc = Polygon(a, b, c)
+fed = abc.translate(Vector(5, 0))
+fed.vertices[0].set_label('D', anchor='south')
+fed.vertices[1].set_label('E', anchor='east')
+fed.vertices[2].set_label('F', anchor='west')
+
+abc.draw()
+fed.draw()
+            \end{python}
         \end{tikzpicture}
     \end{center}
 \end{figure}
