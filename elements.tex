@@ -55,9 +55,9 @@ Za przykład niech posłuży okrąg. Patrząc nań, i rozumiejąc podobieństwo 
 to pojęcie wprowadzili jednak do geometrii dopiero Grecy), łatwo dojść do
 przekonania, że długość okręgu powinna być proporcjonalna do jego średnicy
 (i w konsekwencji -- promienia). Babilończycy również to rozumieli, a stosunek
-długości okręgu do średnicy, który dziś oznaczamy grecką literą $\pi$,
-oszacowali na liczbę $3$. Mówiąc dzisiejszym językiem, obliczali oni długość
-okręgu ze wzoru: $l = 2 \cdot 3r$ (gdzie $r$ to promień okręgu). Spróbujmy
+długości okręgu do średnicy, który dziś oznaczamy grecką literą \(\pi\),
+oszacowali na liczbę \(3\). Mówiąc dzisiejszym językiem, obliczali oni długość
+okręgu ze wzoru: \(l = 2 \cdot 3r\) (gdzie \(r\) to promień okręgu). Spróbujmy
 rozważyć konsekwencje tego faktu.
 
 \begin{figure}[ht!]
@@ -82,7 +82,7 @@ draw_lines(d, f)
 draw_lines(e, g)
           \end{python}
 
-          \draw (1.5,0) node [anchor=south] {$r$};
+          \draw (1.5,0) node [anchor=south] {\(r\)};
       \end{tikzpicture}
       \caption{Porównanie obwodu koła i sześciokąta foremnego.}
       \label{fig:approxpi}
@@ -91,10 +91,10 @@ draw_lines(e, g)
 
 Spójrzmy na sześciokąt foremny wpisany w okrąg (rysunek \ref{fig:approxpi}).
 Odcinki łączące środek okręgu z wierzchołkami wielokąta tworzą równe kąty. Skoro
-tak, to każdy z nich ma miarę: $\frac{360^\circ}{6} = 60^\circ$. Wynika z tego,
+tak, to każdy z nich ma miarę: \(\frac{360^\circ}{6} = 60^\circ\). Wynika z tego,
 że wszystkie narysowane powyżej trójkąty są równoboczne, a zatem bok sześciokąta
 ma tę samą długość co promień okręgu. W związku z tym, obwód sześciokąta ma
-długość $6r$, tak samo jak okrąg, choć z rysunku gołym okiem widać, że obwód
+długość \(6r\), tak samo jak okrąg, choć z rysunku gołym okiem widać, że obwód
 okręgu musi być większy.
 
 Z tabliczek babilońskich wynika, że ich autorzy byli świadomi tego faktu, jednak
@@ -253,8 +253,8 @@ do naszych czasów --- znamy to dzieło wyłącznie z przekładów na język ara
 
 \section{}
 
-Dany jest odcinek $AB$. Należy skonstruować \emph{trójkąt równoboczny} o
-podstawie $AB$.
+Dany jest odcinek \(AB\). Należy skonstruować \emph{trójkąt równoboczny} o
+podstawie \(AB\).
 
 \begin{figure}[h!]
     \begin{center}
@@ -276,41 +276,41 @@ Polygon(a, b, c).draw()
 \end{figure}
 
 \begin{enumerate}
-    \item Skonstruować okrąg o środku A i promieniu $AB$ \post{3}.
-    \item Skonstruować okrąg o środku B i promieniu $AB$ \post{3}.
-    \item Niech punkt przecięcia okręgów nazywa się $C$\footnote{
+    \item Skonstruować okrąg o środku A i promieniu \(AB\) \post{3}.
+    \item Skonstruować okrąg o środku B i promieniu \(AB\) \post{3}.
+    \item Niech punkt przecięcia okręgów nazywa się \(C\)\footnote{
         Oczywiście są dwa takie punkty. Każdy z nich równie dobrze może posłużyć
-        za punkt $C$.
+        za punkt \(C\).
     }.
-    \item Odcinki $AB$, $AC$ i $BC$ tworzą trójkąt równoboczny \post{1}.
+    \item Odcinki \(AB\), \(AC\) i \(BC\) tworzą trójkąt równoboczny \post{1}.
 \end{enumerate}
 
 \proof{
-    Ponieważ punkty $A$ i $C$ leżą na tym samym okręgu o środku $B$, zatem $BA =
+    Ponieważ punkty \(A\) i \(C\) leżą na tym samym okręgu o środku \(B\), zatem $BA =
     BC$ \defin{1.15}.
-    Podobnie punkty $B$ i $C$ leżą na tym samym okręgu o środku $A$, zatem $AB =
+    Podobnie punkty \(B\) i \(C\) leżą na tym samym okręgu o środku \(A\), zatem $AB =
     AC$ \defin{1.15}.
-    Zatem $AB = BC = AC$ \common{1}
+    Zatem \(AB = BC = AC\) \common{1}
 }
 
 \section{}
 
 Możliwe jest skonstruowanie odcinka równego danemu odcinkowi w zadanym punkcie
-(początkowym). Niech zadany punkt nazywa się $A$, zaś odcinek do powielenia
-niech nazywa się $BC$.
+(początkowym). Niech zadany punkt nazywa się \(A\), zaś odcinek do powielenia
+niech nazywa się \(BC\).
 
 \begin{enumerate}
-    \item Skonstruować prostą linię $AB$ \post{1}.
-    \item Skonstruować trójkąt równoboczny $ABD$ \prop{1.1}.
-    \item Przedłużyć prostą linię $DA$ do punktu $E$ oraz $DB$ do punktu $F$
+    \item Skonstruować prostą linię \(AB\) \post{1}.
+    \item Skonstruować trójkąt równoboczny \(ABD\) \prop{1.1}.
+    \item Przedłużyć prostą linię \(DA\) do punktu \(E\) oraz \(DB\) do punktu \(F\)
         \post{2}.
-    \item Skonstruować okrąg o środku $B$ i promieniu $BC$ \post{3}.
-    \item Niech punkt przecięcia tego okręgu z linią $BF$ nazywa się $G$.
-    \item Skostruować okrąg o środku $D$ i propmieniu $DG$ \post{3}.
-    \item Punkt przecięcia tego okręgu z linią $DE$ niech nazywa się $H$.
+    \item Skonstruować okrąg o środku \(B\) i promieniu \(BC\) \post{3}.
+    \item Niech punkt przecięcia tego okręgu z linią \(BF\) nazywa się \(G\).
+    \item Skostruować okrąg o środku \(D\) i propmieniu \(DG\) \post{3}.
+    \item Punkt przecięcia tego okręgu z linią \(DE\) niech nazywa się \(H\).
 \end{enumerate}
 
-Linia $DH$ jest żądanym odcinkiem; jest on równy odcinkowi $BC$.
+Linia \(DH\) jest żądanym odcinkiem; jest on równy odcinkowi \(BC\).
 
 \pagebreak
 \begin{figure}[h!]
@@ -348,17 +348,17 @@ h.draw()
 \end{figure}
 
 \proof{
-    $BC$ i $BG$ są promieniami tego samego okręgu o środku $B$, zatem $BC = BG$
-    \defin{1.15}. Z kolei $DG$ i $DH$ są promieniami tego samego okręgu o środku
-    $D$, zatem $DG = DH$ \defin{1.15}. $DA = DB$, ponieważ są to boki trójkąta
-    równobocznego \prop{1.1}. Skoro tak, to $AH = BG$ \common{3}. A zatem
-    $AH = BG = BC$ \common{1}
+    \(BC\) i \(BG\) są promieniami tego samego okręgu o środku \(B\), zatem \(BC = BG\)
+    \defin{1.15}. Z kolei \(DG\) i \(DH\) są promieniami tego samego okręgu o środku
+    \(D\), zatem \(DG = DH\) \defin{1.15}. \(DA = DB\), ponieważ są to boki trójkąta
+    równobocznego \prop{1.1}. Skoro tak, to \(AH = BG\) \common{3}. A zatem
+    \(AH = BG = BC\) \common{1}
 }
 
 \section{}
 
 Gdy dane są dwa odcinki różnej długości, możeliwe jest odłożenie krótszego
-odcinka na dłuższym. Niech dłuższy odcinek nazywa się $AB$, a krótszy -- $CD$.
+odcinka na dłuższym. Niech dłuższy odcinek nazywa się \(AB\), a krótszy -- \(CD\).
 
 \begin{figure}[h!]
     \begin{center}
@@ -384,17 +384,17 @@ draw_lines(e, a, f, b)
 \end{figure}
 
 \begin{enumerate}
-    \item Skonstruować odcinek $AE$ równy odcinkowi $CD$ \prop{1.2}.
-    \item Skonstruować okrąg o środku $A$ i promieniu $AE$ \post{3}.
-    \item Niech punkt przecięcia tego okręgu z linią $AB$ nazywa się $F$.
+    \item Skonstruować odcinek \(AE\) równy odcinkowi \(CD\) \prop{1.2}.
+    \item Skonstruować okrąg o środku \(A\) i promieniu \(AE\) \post{3}.
+    \item Niech punkt przecięcia tego okręgu z linią \(AB\) nazywa się \(F\).
 \end{enumerate}
 
-Otrzymany odcinek $AF$ jest równy odcinkowi $CD$.
+Otrzymany odcinek \(AF\) jest równy odcinkowi \(CD\).
 
 \proof{
-    Linie $AE$ i $AF$ są promieniami tego samego okręgu, zatem $AF = AE$. Linia
-    $AE$ jest ponadto równa linii $CD$, co wynika z konstrukcji \prop{1.2}.
-    Wobec tego $AF = AE = CD$ \common{3}
+    Linie \(AE\) i \(AF\) są promieniami tego samego okręgu, zatem \(AF = AE\). Linia
+    \(AE\) jest ponadto równa linii \(CD\), co wynika z konstrukcji \prop{1.2}.
+    Wobec tego \(AF = AE = CD\) \common{3}
 }
 
 \section{}
@@ -429,23 +429,23 @@ fed.draw()
     \end{center}
 \end{figure}
 
-Przyjmijmy zgodnie z tezą, że $AB = DE$, a $AC = DF$ oraz że
-$\measuredangle BAC = \measuredangle EDF$.
+Przyjmijmy zgodnie z tezą, że \(AB = DE\), a \(AC = DF\) oraz że
+\(\measuredangle BAC = \measuredangle EDF\).
 
 \proof{
-    Jeżeli przyłożymy $\triangle DEF$ do $\triangle ABC$\footnote{
+    Jeżeli przyłożymy \(\triangle DEF\) do \(\triangle ABC\)\footnote{
         Euklides nigdzie nie wyjaśnia ani nie definiuje, co to znaczy przyłożyć
         figurę do figury. Jest to luka w rozumowaniu. W istocie należałoby
         możliwość przyłożenia figury do innej figury wraz z definicją dodać do
         postulatów.
-    } tak, że punkt $D$ znajdzie się w miejscu punktu $A$, a bok $DE$ w miejscu
-    boku $AB$, to punkt $E$ nałoży się na punkt $B$. A ponieważ $\measuredangle
-    BAC = \measuredangle EDF$, to również bok $DF$ znajdzie się w miejscu boku
-    $AC$, a punkt $F$ nałoży się na punkt $C$.
+    } tak, że punkt \(D\) znajdzie się w miejscu punktu \(A\), a bok \(DE\) w miejscu
+    boku \(AB\), to punkt \(E\) nałoży się na punkt \(B\). A ponieważ \(\measuredangle
+    BAC = \measuredangle EDF\), to również bok \(DF\) znajdzie się w miejscu boku
+    \(AC\), a punkt \(F\) nałoży się na punkt \(C\).
 
-    W takim przypadku bok $EF$ musi nałożyć się na bok $BC$ \post{1}.
+    W takim przypadku bok \(EF\) musi nałożyć się na bok \(BC\) \post{1}.
     Wobec tego boki te muszą być równe \common{4}. Również pozostałe kąty
-    $\triangle DEF$ nałożą się na pozostałe kąty $\triangle ABC$, co oznacza,
+    \(\triangle DEF\) nałożą się na pozostałe kąty \(\triangle ABC\), co oznacza,
     że te kąty także będą odpowiednio równe \common{4}
 }
 
