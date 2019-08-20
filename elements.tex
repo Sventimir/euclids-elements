@@ -8,8 +8,8 @@
 \usepackage{enumitem}
 \usepackage{tikz}
 \usepackage{hyperref}
-\usepackage{style}
 \usepackage{python}
+\usepackage{style}
 
 \title{Elementarz Starożytnych Greków}
 \subtitle{Wybrane twierdzenia z ,,Elementów'' Euklidesa}
@@ -31,7 +31,7 @@
 \begin{document}
 \maketitle
 
-\part*{Rys historyczny}
+\section*{Rys historyczny}
 
 Początki zajmowania się liczbami i geometrią w basenie Morza Śródziemnego wiąże
 się przeważnie z Mezopotamią i Egiptem. Istotnie, tak Babilończycy, jak i
@@ -145,7 +145,7 @@ do naszych czasów --- znamy to dzieło wyłącznie z przekładów na język ara
 
 \pagebreak
 
-\part{}
+\section{}
 \subsection*{Definicje}
 
 \begin{definitions}
@@ -251,7 +251,7 @@ do naszych czasów --- znamy to dzieło wyłącznie z przekładów na język ara
 
 \pagebreak
 
-\section{}
+\begin{theorem}
 
 Dany jest odcinek \(AB\). Należy skonstruować \emph{trójkąt równoboczny} o
 podstawie \(AB\).
@@ -285,15 +285,16 @@ Polygon(a, b, c).draw()
     \item Odcinki \(AB\), \(AC\) i \(BC\) tworzą trójkąt równoboczny \post{1}.
 \end{enumerate}
 
-\proof{
+\begin{proof}
     Ponieważ punkty \(A\) i \(C\) leżą na tym samym okręgu o środku \(B\), zatem $BA =
     BC$ \defin{1.15}.
     Podobnie punkty \(B\) i \(C\) leżą na tym samym okręgu o środku \(A\), zatem $AB =
     AC$ \defin{1.15}.
     Zatem \(AB = BC = AC\) \common{1}
-}
+\end{proof}
+\end{theorem}
 
-\section{}
+\begin{theorem}
 
 Możliwe jest skonstruowanie odcinka równego danemu odcinkowi w zadanym punkcie
 (początkowym). Niech zadany punkt nazywa się \(A\), zaś odcinek do powielenia
@@ -347,15 +348,16 @@ h.draw()
     \end{center}
 \end{figure}
 
-\proof{
+\begin{proof}
     \(BC\) i \(BG\) są promieniami tego samego okręgu o środku \(B\), zatem \(BC = BG\)
     \defin{1.15}. Z kolei \(DG\) i \(DH\) są promieniami tego samego okręgu o środku
     \(D\), zatem \(DG = DH\) \defin{1.15}. \(DA = DB\), ponieważ są to boki trójkąta
     równobocznego \prop{1.1}. Skoro tak, to \(AH = BG\) \common{3}. A zatem
     \(AH = BG = BC\) \common{1}
-}
+\end{proof}
+\end{theorem}
 
-\section{}
+\begin{theorem}
 
 Gdy dane są dwa odcinki różnej długości, możeliwe jest odłożenie krótszego
 odcinka na dłuższym. Niech dłuższy odcinek nazywa się \(AB\), a krótszy -- \(CD\).
@@ -391,13 +393,14 @@ draw_lines(e, a, f, b)
 
 Otrzymany odcinek \(AF\) jest równy odcinkowi \(CD\).
 
-\proof{
+\begin{proof}
     Linie \(AE\) i \(AF\) są promieniami tego samego okręgu, zatem \(AF = AE\). Linia
     \(AE\) jest ponadto równa linii \(CD\), co wynika z konstrukcji \prop{1.2}.
     Wobec tego \(AF = AE = CD\) \common{3}
-}
+\end{proof}
+\end{theorem}
 
-\section{}
+\begin{theorem}
 
 Jeżeli trójkąt ma dwa boki równe odpowiednim bokom drugiego trójkąta, a kąty
 zawarte pomiędzy tymi bokami są równe, to całe trójkąty są
@@ -433,7 +436,7 @@ fed.draw()
 Przyjmijmy zgodnie z tezą, że \(AB = DE\), a \(AC = DF\) oraz że
 \(\measuredangle BAC = \measuredangle EDF\).
 
-\proof{
+\begin{proof}
     Jeżeli przyłożymy \(\triangle DEF\) do \(\triangle ABC\)\footnote{
         Euklides nigdzie nie wyjaśnia ani nie definiuje, co to znaczy przyłożyć
         figurę do figury. Jest to luka w rozumowaniu. W istocie należałoby
@@ -448,9 +451,10 @@ Przyjmijmy zgodnie z tezą, że \(AB = DE\), a \(AC = DF\) oraz że
     Wobec tego boki te muszą być równe \common{4}. Również pozostałe kąty
     \(\triangle DEF\) nałożą się na pozostałe kąty \(\triangle ABC\), co oznacza,
     że te kąty także będą odpowiednio równe \common{4}
-}
+\end{proof}
+\end{theorem}
 
-\section{}
+\begin{theorem}
 
 W trójkącie równoramiennym, kąty zawarte między podstawą, a ramionami\footnote{
     Podstawą jest bok, który ma długość różną od pozostałych boków, które
@@ -494,7 +498,7 @@ Dany jest trójkąt \(ABC\).
         \(AF\) na linii \(BE\) \prop{1.3}.
 \end{enumerate}
 
-\proof{
+\begin{proof}
     Ponieważ \(|AF| = |BG|\), to i \(|CF| = |CG|\) \common{2}. Skoro \(|CA| =
     |CB|\), a \(|CG| = |CF|\), to \(\triangle CAG \cong \triangle CFB\),
     ponieważ dzielą one wspólny \(\measuredangle ACB\) \prop{1.4}. Jeżeli tak,
@@ -507,6 +511,7 @@ Dany jest trójkąt \(ABC\).
     \(|\measuredangle CAG| = |\measuredangle CBF|\) \prop{1.4}. A~wewnątrz tych
     kątów \(|\measuredangle BAG| = |\measuredangle ABF|\), to \(|\measuredangle
     CAB| = |\measuredangle CBA|\) \common{3}
-}
+\end{proof}
+\end{theorem}
 
 \end{document}
