@@ -404,7 +404,8 @@ zawarte pomiędzy tymi bokami są równe, to całe trójkąty są
 \bold{przystające}\footnote{
     Euklides nie używa tego pojęcia.
 }, to znaczy pozostałe boki oraz kąty pierwszego trójkąta muszą być równe
-odpowiednim bokom i kątom drugiego trójkąta.
+odpowiednim bokom i kątom drugiego trójkąta. Oznaczamy to: \(\triangle ABC \cong
+\triangle DEF\).
 
 \begin{figure}[h!]
     \begin{center}
@@ -447,6 +448,65 @@ Przyjmijmy zgodnie z tezą, że \(AB = DE\), a \(AC = DF\) oraz że
     Wobec tego boki te muszą być równe \common{4}. Również pozostałe kąty
     \(\triangle DEF\) nałożą się na pozostałe kąty \(\triangle ABC\), co oznacza,
     że te kąty także będą odpowiednio równe \common{4}
+}
+
+\section{}
+
+W trójkącie równoramiennym, kąty zawarte między podstawą, a ramionami\footnote{
+    Podstawą jest bok, który ma długość różną od pozostałych boków, które
+    nazywane są ramionami. Pojęcia te również powinny znaleźć się wśród
+    definicji.
+} są równe. Jeżeli przedłuży się ramiona trójkąta poza podstawę, to kąty
+zawarte między podstawą, a tymi przedłużonymi liniami także będą równe.
+
+\begin{figure}[!h]
+    \begin{center}
+        \begin{tikzpicture}
+            \begin{python}
+from geometric import *
+
+a = Point(0, 0, label='A', anchor='east')
+b = Point(2, 0, label='B', anchor='west')
+c = Point(1, 3, label='C', anchor='south')
+abc = Polygon(a, b, c)
+ca = c.line_to(a)
+cb = c.line_to(b)
+
+d = ca.find(5).set_label('D', anchor='east')
+e = cb.find(5).set_label('E', anchor='west')
+f = ca.find(4).set_label('F', anchor='east')
+g = cb.find(4).set_label('G', anchor='west')
+
+abc.draw()
+draw_lines(d, a, g)
+draw_lines(e, b, f)
+            \end{python}
+        \end{tikzpicture}
+    \end{center}
+\end{figure}
+
+Dany jest trójkąt \(ABC\).
+
+\begin{enumerate}
+    \item Przedłużyć linię \(CA\) do punktu \(D\) oraz linię \(CB\) do punktu
+        \(E\) \post{2}.
+    \item Wybrać dowolny punkt \(F\) leżący na linii \(AD\) oraz odłożyć odcinek
+        \(AF\) na linii \(BE\) \prop{1.3}.
+\end{enumerate}
+
+\proof{
+    Ponieważ \(|AF| = |BG|\), to i \(|CF| = |CG|\) \common{2}. Skoro \(|CA| =
+    |CB|\), a \(|CG| = |CF|\), to \(\triangle CAG \cong \triangle CFB\),
+    ponieważ dzielą one wspólny \(\measuredangle ACB\) \prop{1.4}. Jeżeli tak,
+    to \(|\measuredangle BGA| = |\measuredangle AFB|\). Wobec tego \(\triangle
+    ABG \cong \triangle AFB\), ponieważ dzielą one wspólny bok \(AB\), a \(|AF|
+    = |BG|\) \prop{1.4}. Zatem \(|\measuredangle FAB| = |\measuredangle GBA|\),
+    a \(|\measuredangle BAG| = |\measuredangle ABF|\).
+
+    Pokazano już, że \(\triangle CAG \cong \triangle CBF\), stąd
+    \(|\measuredangle CAG| = |\measuredangle CBF|\) \prop{1.4}. A~wewnątrz tych
+    kątów \(|\measuredangle BAG| = |\measuredangle ABF|\), to \(|\measuredangle
+    CAB| = |\measuredangle CBA|\) \common{3}
 }
 
 \end{document}
