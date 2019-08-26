@@ -514,4 +514,50 @@ Dany jest trójkąt \(ABC\).
 \end{proof}
 \end{theorem}
 
+\begin{theorem}
+  Jeżeli trójkąt ma dwa kąty równej miary, to boki tworzące trzeci kąt tego
+  trójkąta są równej długości\footnote{
+      Jest to odwrotność poprzedniego twierdzenia. Oba twierdzenia można
+      podsumować zdaniem: ,,Trójkąt jest równoramienny \emph{wtedy i tylko
+      wtedy}, gdy ma dwa kąty równej miary''.
+  }.
+
+  \begin{figure}[!ht]
+      \begin{center}
+          \begin{tikzpicture}
+              \begin{python}
+from geometric import *
+
+a = Point(0, 0, label='A', anchor='east')
+b = Point(2, 2.5, label='B', anchor='south')
+c = Point(4, 0, label='C', anchor='west')
+ab = a.line_to(b)
+cd = ab.perpendicular(c)
+d = ab.intersection(cd).set_label('D', anchor='east')
+
+Polygon(a, b, c).draw()
+draw_lines(c, d)
+              \end{python}
+          \end{tikzpicture}
+      \end{center}
+  \end{figure}
+
+Niech \(|\measuredangle BAC| = |\measuredangle BCA|\), zgodnie z założeniem.
+Wobec tego \(|AB| = |CB|\).
+
+\begin{proof}
+    Jeżeli boki nie są równe, to jeden z nich jest dłuższy. Powiedzmy, że \(AB\)
+    jest dłuższy. Niech \(AD\) będzie odcinkiem powstałym przez odłożenie
+    odcinka \(CB\) na dłuższym odcinku \(AB\) \prop{1.3}. Niech punkty \(C\) i
+    \(D\) będą połaczone linią \post{1}.
+
+    Wobec tego \(\triangle ADC \cong \triangle ABC\), ponieważ trójkąty mają
+    wspólną podstawę \(AC\), wspólny \(\measuredangle BAC\), a \(|AD| = |CB|\)
+    \prop{1.4}. Wobec tego również \(|AD| = |AB|\), gdyż są to odpowiednie boki
+    przystających trójkątów. Ale \(|AD| = |CB|\), a zatem \(|CB| = |AB|\)
+    \common{5}, co jest sprzeczne z początkowym założeniem. Wobec tego
+    \(|AB| = |CB|\).
+\end{proof}
+\end{theorem}
+
 \end{document}
