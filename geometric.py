@@ -178,9 +178,10 @@ class Line:
     def find(self, factor):
         return self.anchor.translate(self.vector.scale(factor))
 
-    def intersection(self, line):
-        '''Solve equations system for scales of both lines to the point of
-           intersection if one does exist. Then find that point on the line.'''
+    def intersect(self, other):
+        return other.intersect_line(self)
+
+    def intersect_line(self, line):
         anchor = line.anchor.vect - self.anchor.vect
         m = Matrix(
             (self.vector.x, -line.vector.x),
@@ -192,30 +193,8 @@ class Line:
         except AttributeError:
             return None
 
-    def __int_circ_zero_vect(self, const_attr, z, circle):
-        const_attr_val = getattr(z, const_attr)
-        other_attr = 'x' if const_attr == 'y' else 'y'
-        results = quadratic(1, 0, const_attr_val ** 2 - circle.radius ** 2)
-        for r in results:
-            v = Vector(0, 0)
-            setattr(v, const_attr, -const_attr_val)
-            setattr(v, other_attr, r)
-            yield v
-
     def intersect_circle(self, circle):
-        z = circle.center.vect - self.anchor.vect
-        if self.vector.x == 0:
-            rs = self.__int_circ_zero_vect('x', z, circle)
-        elif self.vector.y == 0:
-            rs = self.__int_circ_zero_vect('y', z, circle)
-        else:
-            t = (self.vector.y * z.x - self.vector.x * z.y) / self.vector.x
-            a = (self.vector.y ** 2 / self.vector.x ** 2) + 1
-            b = 2 * self.vector.y * t / self.vector.x
-            c = t ** 2 - circle.radius ** 2
-            xs = quadratic(a, b, c)
-            rs = (Vector(x, (self.vector.y * x / self.vector.x) + b) for x in xs)
-        return tuple(circle.center.translate(r) for r in rs)
+        return intersect_line_circle(self, circle)
 
     def draw(self, scale_up, scale_down):
         draw_lines(self.find(scale_down), self.find(scale_up))
@@ -238,6 +217,34 @@ class Circle:
 
     def translate(self, vector):
         return self.__class__(self.center.translate(vector), self.radius)
+
+    def intersect(self, other):
+        return other.intersect_circle(self)
+
+    def intersect_line(self, line):
+        return intersect_line_circle(line, self)
+
+    def intersect_circle(self, circle):
+        d = self.center.vect_to(circle.center)
+        dist = d.magnitude
+        summa_radii = self.radius + circle.radius
+        differentia_radii = abs(self.radius - circle.radius)
+        if dist == summa_radii:
+            return (self.find(self.center.vect_to(circle.center)), )
+        elif dist == differentia_radii:
+            return (self.find(-self.center.vect_to(circle.center)), )
+        elif dist > summa_radii or dist < differentia_radii:
+            return tuple()
+        # it is important that vector points to increasing xs or increasing ys
+        if d.x > 0 or (d.x == 0 and d.y > 0):
+            left, right = self, circle
+        else:
+            d = -d
+            left, right = circle, self
+        lr, rr = left.radius, right.radius
+        angle = math.acos((dist ** 2 + lr ** 2 - rr ** 2) / (2 * lr * dist))
+        vs = (Vector.from_polar(lr, theta) for theta in (d.angle + angle, d.angle - angle))
+        return tuple(left.center.translate(v) for v in vs)
 
     def draw(self, start=0, end=360):
         if self.center.label is not None:
@@ -267,27 +274,30 @@ def symmetral(a, b):
     segment = a.line_to(b)
     return segment.perpendicular(a.translate(segment.vector.scale(a.dist(b) / 2.0)))
 
-def circles_intersection(c1, c2):
-    d = c1.center.vect_to(c2.center)
-    dist = d.magnitude
-    summa_radii = c1.radius + c2.radius
-    differentia_radii = abs(c1.radius - c2.radius)
-    if dist == summa_radii:
-        return (c1.find(c1.center.vect_to(c2.center)), )
-    elif dist == differentia_radii:
-        return (c1.find(-c1.center.vect_to(c2.center)), )
-    elif dist > summa_radii or dist < differentia_radii:
-        return tuple()
-    # it is important that vector points to increasing xs or increasing ys
-    if d.x > 0 or (d.x == 0 and d.y > 0):
-        left, right = c1, c2
+def int_line_circ_zero_vect(const_attr, z, circle):
+    const_attr_val = getattr(z, const_attr)
+    other_attr = 'x' if const_attr == 'y' else 'y'
+    results = quadratic(1, 0, const_attr_val ** 2 - circle.radius ** 2)
+    for r in results:
+        v = Vector(0, 0)
+        setattr(v, const_attr, -const_attr_val)
+        setattr(v, other_attr, r)
+        yield v
+
+def intersect_line_circle(line, circle):
+    z = circle.center.vect - line.anchor.vect
+    if line.vector.x == 0:
+        rs = int_line_circ_zero_vect('x', z, circle)
+    elif line.vector.y == 0:
+        rs = int_line_circ_zero_vect('y', z, circle)
     else:
-        d = -d
-        left, right = c2, c1
-    lr, rr = left.radius, right.radius
-    angle = math.acos((dist ** 2 + lr ** 2 - rr ** 2) / (2 * lr * dist))
-    vs = (Vector.from_polar(lr, theta) for theta in (d.angle + angle, d.angle - angle))
-    return tuple(left.center.translate(v) for v in vs)
+        t = (line.vector.y * z.x - line.vector.x * z.y) / line.vector.x
+        a = (line.vector.y ** 2 / line.vector.x ** 2) + 1
+        b = 2 * line.vector.y * t / line.vector.x
+        c = t ** 2 - circle.radius ** 2
+        xs = quadratic(a, b, c)
+        rs = (Vector(x, (line.vector.y * x / line.vector.x) + b) for x in xs)
+    return tuple(circle.center.translate(r) for r in rs)
 
 def equilateral_triangle(a, b):
     ''' Given two points return all possible vertices of an equilateral triangle.'''
