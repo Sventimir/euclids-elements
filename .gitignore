@@ -1,6 +1,7 @@
 *.pdf
 elements.py*
 latex.py
+*.pyc
 *.log
 *.out
 *.aux
