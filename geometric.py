@@ -122,7 +122,7 @@ def draw_lines(*points):
 
 def symmetral(a, b):
     segment = a.line_to(b)
-    return segment.perpendicular(a.translate(segment.vector.scale(a.dist(b) / 2.0)))
+    return segment.perpendicular(Point(a.x + b.x / 2.0, a.y + b.y / 2.0))
 
 
 # Constructions:
