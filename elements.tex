@@ -639,7 +639,7 @@ draw_lines(a, d, b)
 
 \begin{theorem}
     Możliwe jest skonstruowanie prostej, która dzieli dany kąt prostoliniowy
-    na dwa równe kąty.
+    na dwa równe kąty. Taką prostą nazywamy \bold{dwusieczną} kąta.
 
     \begin{figure}[!ht]
         \begin{center}
@@ -684,6 +684,44 @@ draw_lines(a, f)
         przystające \prop{1.8}. Wobec tego \(|\measuredangle DAF| =
         |\measuredangle EAF|\).
 
+    \end{proof}
+\end{theorem}
+
+\begin{theorem}
+    Możliwe jest podzielenie prostej linii na dwie równe części.
+
+    \begin{enumerate}
+        \item Dana jest prosta linia \(AB\).
+        \item Skonstruować trójkąt równoboczny o podstawie \(AB\) \prop{1.2};
+            niech jego pozostały wierzchołek nazywa się \(C\).
+        \item Skonstruować dwusieczną \(\measuredangle ACB\) \prop{1.9}.
+        \item Niech punkt przeciącia dwusiecznej z odcinkiem \(AB\) nazywa się
+            \(D\); dzieli on odcinek \(AB\) na dwie równe części.
+    \end{enumerate}
+
+    \begin{figure}[!h]
+        \begin{center}
+            \begin{tikzpicture}
+                \begin{python}
+from geometric import *
+
+a = Point(0, 0, label='A', anchor='east')
+b = Point(3, 0, label='B', anchor='west')
+(_, c) = equilateral_triangle(a, b)
+d = a.translate(a.vect_to(b).scale(0.5)).set_label('D', anchor='north')
+
+Polygon(a, b, c.set_label('C', anchor='south')).draw()
+draw_lines(c, d)
+                \end{python}
+            \end{tikzpicture}
+        \end{center}
+    \end{figure}
+
+    \begin{proof}
+        \(|\measuredangle ACD| = |\measuredangle DCB|\) \prop{1.9}. Ponadto
+        \(|AC| = |BC|\) \prop{1.1}, a \(CD\) jest wspólnym bokiem trójkątów
+        \(\triangle ACD\) i \(\triangle BCD\), zatem trójkąty te są przystające
+        \prop{1.4}. Wobec tego \(|AD| = |BD|\) \prop{1.4}.
     \end{proof}
 \end{theorem}
 
