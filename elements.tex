@@ -809,11 +809,20 @@ draw_lines(a, e, g, f, b)
 draw_lines(e, c, f)
 draw_lines(c, g)
 circ.draw()
+d.draw_dot()
                 \end{python}
             \end{tikzpicture}
         \end{center}
     \end{figure}
 
+    \begin{proof}
+        \(|EG| = |FG|\) \prop{1.10}. \(|CE| = |CF|\) \defin{1.15}. Zatem,
+        ponieważ \(CG\) jest wspólnym bokiem \(\triangle CEG\) i \(\triangle
+        CFG\), to te trójkąty są przystające \prop{1.8}. Wobec tego
+        \(|\measuredangle EGC| = |\measuredangle FGC|\), a ponieważ te kąty
+        przylegają do siebie, to są z definicji kątami prostymi \defin{1.10}.
+        Stąd \(CG \perp AB\).
+    \end{proof}
 \end{theorem}
 
 \end{document}
