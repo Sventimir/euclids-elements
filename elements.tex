@@ -725,4 +725,95 @@ draw_lines(c, d)
     \end{proof}
 \end{theorem}
 
+\begin{theorem}
+    Możliwe jest narysowanie prostej linii prostopadłej do danej prostej linii
+    i przechodzącej przez dany punkt na niej.
+
+    \begin{enumerate}
+        \item Dana jest prosta linia \(AB\) oraz punkt \(C\) leżący na niej.
+        \item Wybrać dowolny punkt \(D\) należący do \(AB\).
+        \item Skonstruować linię \(CE\) leżącą na linii \(AB\) po przeciwnej
+            stronie punktu \(C\), równą linii \(CD\) \prop{1.3}.
+        \item Skonstruować trójkąt równoboczny \(\triangle DEF\) o podstawie
+            \(DE\) \prop{1.1}.
+        \item Prosta linia \(CF\) jest protopadła do \(AB\) \post{1.1}.
+    \end{enumerate}
+
+    \begin{figure}[!h]
+        \begin{center}
+            \begin{tikzpicture}
+                \begin{python}
+from geometric import *
+
+a = Point(0, 0, label='A', anchor='east')
+b = Point(5, 1, label='B', anchor='west')
+ab = a.line_to(b)
+c = a.translate(ab.vector.scale(a.dist(b) / 3)).set_label('C', anchor='north')
+d = a.translate(ab.vector.scale(a.dist(b) / 6)).set_label('D', anchor='north')
+e = c.translate(ab.vector.scale(c.dist(d))).set_label('E', anchor='north')
+(_, f) = equilateral_triangle(d, e)
+f.set_label('F', anchor='south')
+
+draw_lines(a, d, c, e, b)
+draw_lines(d, f, e)
+draw_lines(c, f)
+                \end{python}
+            \end{tikzpicture}
+        \end{center}
+    \end{figure}
+
+    \begin{proof}
+        \(|CD| = |CE|\) \prop{1.3} oraz \(|DF| = |EF|\) \prop{1.1}, a bok \(CF\)
+        jest wspólny dla \(\triangle CDF\) i \(\triangle CEF\). W związku z tym
+        \(|\measuredangle DCF| = |\measuredangle CEF|\) \prop{1.8}. Ponieważ
+        kąty te są przyległe i równe, to z definicji są kątami prostymi
+        \defin{1.10}. Zatem \(AB \perp CF\).
+    \end{proof}
+\end{theorem}
+
+\begin{theorem}
+    Możliwe jest skonstruowanie prostej linii prostopadłej do danej niekończonej
+    prostej linii, przechodzącej przez punkt leżący poza tą linią.
+
+    \begin{enumerate}
+        \item Dana jest prosta, nieskończenie przedłużona linia \(AB\) oraz
+            punkt \(C\) nie leżący na tej linii.
+        \item Wybrać dowolny punkt \(D\) leżacy po przeciwnej stronie prostej
+            \(AB\) niż punkt \(C\).
+        \item Narysować okrąg o środku \(C\) i promieniu \(CD\) \post{3}.
+        \item Niech punkty przecięcia narysowanego okręgu z prostą \(AB\)
+            nazywają się \(E\) i \(F\).
+        \item Podzielić prostą linię \(EF\) na pół w punkcie \(G\) \prop{1.10}.
+        \item Narysować linie \(CE\), \(CF\) i \(CG\) \post{1}.
+        \item Prosta linia \(CG \perp AB\).
+    \end{enumerate}
+
+    \begin{figure}[!h]
+        \begin{center}
+            \begin{tikzpicture}
+                \begin{python}
+from geometric import *
+
+a = Point(0, 0, label='A', anchor='east')
+b = Point(5, 1, label='B', anchor='west')
+c = Point(2, 3, label='C', anchor='south')
+ab = a.line_to(b)
+d = Point(2, 0, label='D', anchor='north')
+circ = Circle(c, d)
+(e, f) = ab.intersect(circ)
+g = e.translate(e.vect_to(f).scale(0.5)).set_label('G', anchor='north')
+e.set_label('E', anchor='north')
+f.set_label('F', anchor='north')
+
+draw_lines(a, e, g, f, b)
+draw_lines(e, c, f)
+draw_lines(c, g)
+circ.draw()
+                \end{python}
+            \end{tikzpicture}
+        \end{center}
+    \end{figure}
+
+\end{theorem}
+
 \end{document}

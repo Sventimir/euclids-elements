@@ -285,19 +285,12 @@ def int_line_circ_zero_vect(const_attr, z, circle):
         yield v
 
 def intersect_line_circle(line, circle):
-    z = circle.center.vect - line.anchor.vect
-    if line.vector.x == 0:
-        rs = int_line_circ_zero_vect('x', z, circle)
-    elif line.vector.y == 0:
-        rs = int_line_circ_zero_vect('y', z, circle)
-    else:
-        t = (line.vector.y * z.x - line.vector.x * z.y) / line.vector.x
-        a = (line.vector.y ** 2 / line.vector.x ** 2) + 1
-        b = 2 * line.vector.y * t / line.vector.x
-        c = t ** 2 - circle.radius ** 2
-        xs = quadratic(a, b, c)
-        rs = (Vector(x, (line.vector.y * x / line.vector.x) + b) for x in xs)
-    return tuple(circle.center.translate(r) for r in rs)
+    z = line.anchor.vect_to(circle.center)
+    a = (line.vector.x ** 2) + (line.vector.y ** 2)
+    b = 2 * (z.x * line.vector.x + z.y * line.vector.y)
+    c = (z.x ** 2) + (z.y ** 2) - (circle.radius ** 2)
+    ss = quadratic(a, b, c)
+    return (line.anchor.translate(line.vector.scale(-s)) for s in ss)
 
 def equilateral_triangle(a, b):
     ''' Given two points return all possible vertices of an equilateral triangle.'''
