@@ -274,16 +274,6 @@ def symmetral(a, b):
     segment = a.line_to(b)
     return segment.perpendicular(Point(a.x + b.x / 2.0, a.y + b.y / 2.0))
 
-def int_line_circ_zero_vect(const_attr, z, circle):
-    const_attr_val = getattr(z, const_attr)
-    other_attr = 'x' if const_attr == 'y' else 'y'
-    results = quadratic(1, 0, const_attr_val ** 2 - circle.radius ** 2)
-    for r in results:
-        v = Vector(0, 0)
-        setattr(v, const_attr, -const_attr_val)
-        setattr(v, other_attr, r)
-        yield v
-
 def intersect_line_circle(line, circle):
     z = line.anchor.vect_to(circle.center)
     a = (line.vector.x ** 2) + (line.vector.y ** 2)

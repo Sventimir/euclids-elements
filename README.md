@@ -14,7 +14,7 @@ It is done with the following command:
 
     $ pdflatex -shell-escape elements.tex
 
-If it spits warning about missing refernces, just rebuild and all should be
+If it spits a warning about missing refernces, just rebuild and all should be
 fine.
 
 During the compilation a lot of intermediate files are created including
