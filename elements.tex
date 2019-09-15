@@ -1078,7 +1078,7 @@ draw_lines(d, c, a, b, c)
 \end{theorem}
 
 \begin{theorem}
-    W dowolnym trójkącie, dłuższy bok znajduje się naprzeciw większego
+    W każdym trójkącie, dłuższy bok znajduje się naprzeciw większego
     kąta\footnote{
         To jest dosłowne tłumaczenie Euklidesa. Bardziej precyzyjnym
         sformułowaniem byłoby: ,,im dłuższy bok trójkąta, (\emph{ceteris
@@ -1103,16 +1103,50 @@ draw_lines(b, d, a, b, c, d)
     \end{figure}
 
     \begin{proof}
-        Niech \(AC\) będzie najdłuższym bokiem \(\triangle ABC\). Obierzmy
-        punkt \(D\) na boku \(AC\) taki że \(|AD| = |AB|\) \prop{1.3}. Połączmy
+        Niech prosta linia \(AC\) będzie dłuższa niż \(AB\). Obierzmy
+        punkt \(D\) na \(AC\) taki że \(|AD| = |AB|\) \prop{1.3}. Połączmy
         prostą linią punkty \(B\) i \(D\) \post{1}. \(\measuredangle ADB\) jest
         zewnętrznym kątem \(\triangle BCD\), zatem jest większy od
         przeciwległego \(\measuredangle BCD\) \prop{1.16}. A ponieważ
         \(|\measuredangle ADB| = |\measuredangle ABD|\) \prop{1.5},
         \(\measuredangle ABC\) jest znacznie większy od \(\measuredangle BCA\).
+    \end{proof}
+\end{theorem}
 
-        Analogicznie można pokazać, że \(|\measuredangle BAD| < |\measuredangle
-        ABC|\).
+\begin{theorem}
+    W każdym trójkącie, większy kąt znajduje się naprzeciw dłuższego boku.
+
+    \begin{figure}[!h]
+        \begin{center}
+            \begin{tikzpicture}
+                \begin{python}
+from geometric import *
+
+a = Point(6, 3, label='A', anchor='west')
+b = Point(0, 2, label='B', anchor='east')
+c = Point(2, 0, label='C', anchor='north')
+
+Polygon(a, b, c).draw()
+                \end{python}
+            \end{tikzpicture}
+        \end{center}
+    \end{figure}
+
+    \begin{proof}
+        Niech \(\measuredangle ABC\) będzie większym kątem niż \(\measuredangle
+        BAC\). Jeżeli by \(AC\) miał nie być dłuższy niż \(BC\), to musiałby
+        być mu równy lub krótszy. Boki te jednak nie mogą być równe, gdyż
+        w takim przypadku \(\measuredangle ABC\) musiałby być równy \(
+        \measuredangle BCA\), a tak nie jest\footnote{
+            Ponieważ mamy do czynienia z dowolnym trójkątem, wynikałoby z tego,
+            że każdy trójkąt jest równoramienny, co jest absurdem.
+        }. Zatem \(|AC| \neq |BC|\).
+
+        Jeżeli by \(AC\) miał być krótszy niż \(BC\), to \(\measuredangle ABC\)
+        musiałby być mniejszy ok \(\measuredangle BAC\) \prop{1.18}, a tak nie
+        jest. Zatem \(|AC| \nless |BC|\).
+
+        A zatem \(|AC| > |BC|\).
     \end{proof}
 \end{theorem}
 
