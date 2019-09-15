@@ -857,7 +857,7 @@ draw_lines(a, e)
 
         \begin{enumerate}
             \item \(|\measuredangle AEC| = |\measuredangle AEB|\);
-            \item \(|\measuredangle AEC| \neq |\measuredangle AEB|\);
+            \item \(|\measuredangle AEC| \neq |\measuredangle AEB|\).
         \end{enumerate}
 
         W pierwszym przypadku wymienione kąty są kątami prostymi \defin{1.10}.
@@ -883,7 +883,6 @@ draw_lines(a, e)
         |\measuredangle AEC|\) \common{1}.
     \end{proof}
     \bold{Komentarz}:
-
       Występujące tutaj ukryte założenie, że dodawanie kątów jest łączne,
       doskonale widoczne w powyższych równaniach, jest znacznie trudniejsze
       do wyłapania w potoku mowy Euklidesa, który równaniami się nie
@@ -904,6 +903,217 @@ draw_lines(a, e)
       długści i kątów liczbami. Gdy się jednak odrzuci znany nam związek między
       geometrią, a algebrą, to tego rodzaju zależności nagle przestają być tak
       trywialne do udowodnienia.
+\end{theorem}
+
+\begin{theorem}
+    Jeżeli dwie proste linie leżące po przeciwnych stronach trzeciej tworzą
+    z nią kąty, których suma jest równa dwóm kątom prostym, to te dwie proste
+    linie przedłużają się wzajemnie.
+
+    \begin{figure}[!h]
+        \begin{center}
+            \begin{tikzpicture}
+                \begin{python}
+from geometric import *
+
+a = Point(0, 3, label='A', anchor='south')
+c = Point(0, 0, label='C', anchor='east')
+d = Point(4, 1, label='D', anchor='west')
+b = c.line_to(d).find(1.5).set_label('B', anchor='north')
+e = Point(3, 3, label='E', anchor='south')
+
+draw_lines(c, b, d)
+draw_lines(a, b, e)
+                \end{python}
+            \end{tikzpicture}
+        \end{center}
+    \end{figure}
+
+    \begin{proof}
+        Dane są proste linie \(AB\), \(BC\) i \(BD\) takie, że \(\measuredangle
+        ABC\) i \(\measuredangle ABD\) są w sumie równe dwóm kątom prostym.
+        Załóżmy, że \(BD\) \bold{nie jest} przedłużeniem \(BC\). Skoro tak,
+        to przedłużmy linię \(BC\) do punktu \(E\) \post{2}.
+
+        Wobec tego suma \(\measuredangle ABC\) i \(\measuredangle ABE\) jest
+        równa dwóm kątom prostym \prop{1.13}. Z założeń wiadomo, że suma
+        \(\measuredangle ABC\) i \(\measuredangle ABD\) także jest równa dwóm
+        kątom prostym. Wobec tego: \( |\measuredangle ABC| +
+        |\measuredangle ABE| = |\measuredangle ABC + |\measuredangle ABD| \)
+        \common{1}. Skoro tak, to od obu kątów odejmijmy \(\measuredangle ABC\)
+        \common{3}. Zatem \(|\measuredangle ABE| = |\measuredangle ABD|\).
+
+        Jednak skoro \(BE\) jest przedłużeniem \(BC\), a \(BD\) nie jest, to
+        te kąty nie mogą być równe. Zatem założenie, że \(BD\) nie jest
+        przedłużeniem \(BC\) musi być błędne.
+    \end{proof}
+\end{theorem}
+
+\begin{theorem}
+    Jeżeli dwie proste linie przecinają się, to przeciwległe kąty zawarte
+    między nimi są równe.
+
+    \begin{figure}[!h]
+        \begin{center}
+            \begin{tikzpicture}
+                \begin{python}
+from geometric import *
+
+a = Point(0, 3, label='A', anchor='east')
+b = Point(8, 0, label='B', anchor='west')
+c = Point(0, 0, label='C', anchor='east')
+d = Point(8, 3, label='D', anchor='west')
+e = a.line_to(b).intersect(c.line_to(d)).set_label('E', anchor='south')
+
+draw_lines(a, e, b)
+draw_lines(c, d)
+                \end{python}
+            \end{tikzpicture}
+        \end{center}
+    \end{figure}
+
+    \begin{proof}
+        Ponieważ \(AE\) przecina prostą linię \(CD\), to suma \(\measuredangle
+        AEC\) i \(\measuredangle AED\) jest równa dwóm kątom prostym
+        \prop{1.13}. Podobnie skoro \(CE\) przecina prostą linię \(AB\), to
+        suma \(\measuredangle AEC\) i \(\measuredangle CEB\) także jest równa
+        dwóm kątom prostym \prop{1.13}.
+
+        Zatem:
+
+        \[ |\measuredangle AEC| + |\measuredangle AED| =
+            |\measuredangle AEC| + |\measuredangle CEB| \]
+
+        Od obu kątów odejmijmy \(\measuredangle AEC\) \common{3} i otrzymujemy:
+
+        \[ |\measuredangle AED| = |\measuredangle CEB| \]
+    \end{proof}
+\end{theorem}
+
+\begin{theorem}
+    W dowolnym trójkącie, jeżeli przedłużyć jeden z boków, to zewnętrzny kąt
+    zawarty między tym przedłużeniem, a sąsiednim bokiem trójkąta jest zawsze
+    większy od każdego z przeciwległych kątów w tym trójkącie.
+
+    \begin{figure}[!h]
+        \begin{center}
+          \begin{tikzpicture}
+              \begin{python}
+from geometric import *
+
+a = Point(1, 3, label='A', anchor='south')
+b = Point(0, 0, label='B', anchor='east')
+c = Point(4, 1, label='C', anchor='north')
+ac = a.line_to(c)
+bc = b.line_to(c)
+d = c.translate(bc.vector.scale(2)).set_label('D', anchor='west')
+e = ac.find(a.dist(c) / 2).set_label('E', anchor='east')
+be = b.line_to(e)
+f = be.find(b.dist(e) * 2).set_label('F', anchor='west')
+g = c.translate(ac.vector.scale(2)).set_label('G', anchor='west')
+
+draw_lines(d, c, b, a, g)
+draw_lines(b, e, f, c)
+              \end{python}
+          \end{tikzpicture}
+        \end{center}
+    \end{figure}
+
+    \begin{proof}
+        Dany jest \(\triangle ABC\) i przedłużenie boku \(BC\) do punktu \(D\).
+        Wyznaczmy punkt \(E\) w połowie długości \(AC\) \prop{1.10}. Narysujmy
+        odcinek \(BE\) \post{1} i przedłużmy go do punktu \(F\) tak, aby \(BE\)
+        i \(EF\) były równej długości \prop{1.3}. Narysujmy też odcinek \(FC\)
+        \post{1} oraz przedłużmy bok \(AC\) do dowolnego punktu \(G\) \post{2}.
+
+        Z powyższej konstrukcji wynika, że \(|AE| = |EC|\) i \(|BE| = |EF|\).
+        Ponadto \(|\measuredangle AEB| = |\measuredangle FEC|\) \prop{1.15}.
+        Zatem \(\triangle AEB \cong \triangle FEC\) \prop{1.4}.
+
+        Skoro tak, to \(\measuredangle BAE\) jest równy \(\measuredangle ECF\),
+        który jest częścią \(\measuredangle ACD\), a więc jest od niego mniejszy
+        \common{5}. Skoro tak, to i \(|\measuredangle BAC| <
+        |\measuredangle ACD|\).
+
+        Podonie można pokazać, że \(|\measuredangle ABC| < |\measuredangle BCG|\).
+        A ponieważ \(|\measuredangle ACD| = |\measuredangle BCG|\) \prop{1.15},
+        to i \(|\measuredangle ABC| < |\measuredangle ACD|\).
+    \end{proof}
+\end{theorem}
+
+\begin{theorem}
+    W każdym trójkącie suma dwóch dowolnych jego kątów jest mniejsza od dwóch
+    kątów prostych.
+
+    \begin{figure}[!h]
+        \begin{center}
+            \begin{tikzpicture}
+                \begin{python}
+from geometric import *
+
+a = Point(1, 3, label='A', anchor='south')
+b = Point(0, 0, label='B', anchor='east')
+c = Point(5, 1, label='C', anchor='north')
+d = b.line_to(c).find(8).set_label('D', anchor='west')
+
+draw_lines(d, c, a, b, c)
+                \end{python}
+            \end{tikzpicture}
+        \end{center}
+    \end{figure}
+
+    \begin{proof}
+        \(\measuredangle ACD\) jest większy od \(\measuredangle ABC\) oraz od
+        \(\measuredangle CBA\) \prop{1.16}. Jeżeli do każdego z tych trzech
+        kątów dodamy \(\measuredangle ACD\), to w pierszym przypadku otrzymamy
+        dwa kąty proste \prop{1.13}. Zatem w pozostałych przypadkach otrzymamy
+        kąty mniejsze od dwóch kątów prostych \common{2}\footnote{
+            W zasadzie brak aksjomatu, do którego można się w tym miejscu
+            odwołać. Euklides nie odwołuje się do żadnego, jednak fakt, że
+            potrzebujemy aksjomatu mówiącego, że gdy do równych dodamy równe,
+            to sumy również będą równe, a nie potrzebujemy analogicznego
+            aksjomatu o nierównościach, budzi pewien niepokój.
+        }.
+    \end{proof}
+\end{theorem}
+
+\begin{theorem}
+    W dowolnym trójkącie, dłuższy bok znajduje się naprzeciw większego
+    kąta\footnote{
+        To jest dosłowne tłumaczenie Euklidesa. Bardziej precyzyjnym
+        sformułowaniem byłoby: ,,im dłuższy bok trójkąta, (\emph{ceteris
+        paribus}), tym większy kąt naprzeciw niego''.
+    }.
+
+    \begin{figure}[!h]
+        \begin{center}
+            \begin{tikzpicture}
+                \begin{python}
+from geometric import *
+
+a = Point(0, 3, label='A', anchor='east')
+b = Point(1, 0, label='B', anchor='east')
+c = Point(9, 1, label='C', anchor='west')
+d = a.line_to(c).find(a.dist(b)).set_label('D', anchor='south')
+
+draw_lines(b, d, a, b, c, d)
+                \end{python}
+            \end{tikzpicture}
+        \end{center}
+    \end{figure}
+
+    \begin{proof}
+        Niech \(AC\) będzie najdłuższym bokiem \(\triangle ABC\). Obierzmy
+        punkt \(D\) na boku \(AC\) taki że \(|AD| = |AB|\) \prop{1.3}. Połączmy
+        prostą linią punkty \(B\) i \(D\) \post{1}. \(\measuredangle ADB\) jest
+        zewnętrznym kątem \(\triangle BCD\), zatem jest większy od
+        przeciwległego \(\measuredangle BCD\) \prop{1.16}. A ponieważ
+        \(|\measuredangle ADB| = |\measuredangle ABD|\) \prop{1.5},
+        \(\measuredangle ABC\) jest znacznie większy od \(\measuredangle BCA\).
+
+        Analogicznie można pokazać, że \(|\measuredangle BAD| < |\measuredangle
+        ABC|\).
+    \end{proof}
 \end{theorem}
 
 \end{document}
