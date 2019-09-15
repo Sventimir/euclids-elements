@@ -825,4 +825,85 @@ d.draw_dot()
     \end{proof}
 \end{theorem}
 
+\begin{theorem}
+    Jeżeli dwie proste linie przecinają się, to tworzą [po tej same stronie
+    każdej z nich] dwa kąty proste lub [dwa kąty w sumie] równe dwóm kątom
+    prostym.
+
+    \begin{figure}[!h]
+        \begin{center}
+            \begin{tikzpicture}
+                \begin{python}
+from geometric import *
+
+a = Point(3, 3, label='A', anchor='south')
+b = Point(0, 0, label='B', anchor='east')
+c = Point(5, 1, label='C', anchor='west')
+d = Point(2, 3, label='D', anchor='south')
+bc = b.line_to(c)
+de = bc.perpendicular(d)
+e = bc.intersect(de).set_label('E', anchor='north')
+draw_lines(b, c)
+draw_lines(d, e)
+draw_lines(a, e)
+                \end{python}
+            \end{tikzpicture}
+        \end{center}
+    \end{figure}
+
+    \begin{proof}
+        Dane są proste linie \(BC\) i \(AE\), przecinające się w punkcie \(E\).
+        Rozważmy następujące przypadki:
+
+        \begin{enumerate}
+            \item \(|\measuredangle AEC| = |\measuredangle AEB|\);
+            \item \(|\measuredangle AEC| \neq |\measuredangle AEB|\);
+        \end{enumerate}
+
+        W pierwszym przypadku wymienione kąty są kątami prostymi \defin{1.10}.
+
+        W drugim przypadku skonstruujmy prostą linię \(DE\) prostopadłą do
+        \(BC\) \prop{1.11}. Teraz \(\measuredangle CED\) jest równy sumie
+        \(\measuredangle AEC\) i \(\measuredangle AED\), a więc te dwa kąty
+        tworzą w sumie kąt prosty \(\measuredangle CED\). Do obu tych kątów
+        dodajmy \(\measuredangle DBE\) \common{2} i otrzymujemy:
+
+        \[ (|\measuredangle AEC| + |\measuredangle AED|) + |\measuredangle DEB|
+            = |\measuredangle CED| + |\measuredangle DEB| \]
+
+        Analogicznie: \(\measuredangle AEB\) jest równy sumie \(\measuredangle
+        DEB\) i \(\measuredangle DEA\). Zatem do obu tych kątów dodajmy
+        \(\measuredangle AEC\) \common{{2}} i otrzymujemy:
+
+        \[ |\measuredangle AEB| + |\measuredangle AEC| = (|\measuredangle DEB|
+            + |\measuredangle AED|) + |\measuredangle AEC| \]
+
+        Wynika stąd, że \(|\measuredangle CED| + |\measuredangle DEB|\), to jest
+        suma dwóch kątów prostych, jest równa \(|\measuredangle AEB| +
+        |\measuredangle AEC|\) \common{1}.
+    \end{proof}
+    \bold{Komentarz}:
+
+      Występujące tutaj ukryte założenie, że dodawanie kątów jest łączne,
+      doskonale widoczne w powyższych równaniach, jest znacznie trudniejsze
+      do wyłapania w potoku mowy Euklidesa, który równaniami się nie
+      posługiwał.
+
+      Można jednak na ten problem spojrzeć i z drugiej strony: łączność
+      (podobnie jak przemienność) dodawania kątów jest doskonale widoczna
+      w rysunkach, więc trudno mieć za złe niedostrzeżenie tego problemu
+      Euklidesowi, który z jednej strony nie znał abstrakcyjnej algebry, a
+      z drugiej, podobnie jak wszyscy starożytni Grecy, usilnie unikał
+      mieszania geometrii z arytmetyką.
+
+      Z dziejszej perspektywy można właśnie rozumieć to twierdzenie jako
+      pośredni dowód, że dodawanie kątów rzeczywiście jest łączne. Bo skoro
+      widać z rysunków, że opisywana relacja rzeczywiście zachodzi, to i
+      równania powinny się z tym zgadzać. Dla nas jest to oczywiste, ponieważ
+      jesteśmy przyzwyczajeni do opisywania figur geometrycznych, mierzenia
+      długści i kątów liczbami. Gdy się jednak odrzuci znany nam związek między
+      geometrią, a algebrą, to tego rodzaju zależności nagle przestają być tak
+      trywialne do udowodnienia.
+\end{theorem}
+
 \end{document}
