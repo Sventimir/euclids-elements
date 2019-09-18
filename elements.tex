@@ -522,7 +522,7 @@ Dany jest trójkąt \(ABC\).
       wtedy}, gdy ma dwa kąty równej miary''.
   }.
 
-  \begin{figure}[!ht]
+  \begin{figure}[!h]
       \begin{center}
           \begin{tikzpicture}
               \begin{python}
@@ -533,7 +533,7 @@ b = Point(2, 2.5, label='B', anchor='south')
 c = Point(4, 0, label='C', anchor='west')
 ab = a.line_to(b)
 cd = ab.perpendicular(c)
-d = ab.intersection(cd).set_label('D', anchor='east')
+d = ab.intersect(cd).set_label('D', anchor='east')
 
 Polygon(a, b, c).draw()
 draw_lines(c, d)
@@ -770,7 +770,6 @@ draw_lines(c, f)
         \defin{1.10}. Zatem \(AB \perp CF\).
     \end{proof}
 \end{theorem}
-
 \begin{theorem}
     Możliwe jest skonstruowanie prostej linii prostopadłej do danej niekończonej
     prostej linii, przechodzącej przez punkt leżący poza tą linią.
