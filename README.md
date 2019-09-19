@@ -22,3 +22,6 @@ some Python scripts and logs of executions of those scripts. They are all
 git-ignored and can be safely removed after build. PDF document is all that
 matters. Building in formats other than PDF, with compilers other than
 `pdflatex` has *not* been tested.
+
+In order to build presentation just `pdflatex -shell-escape presentation.tex`
+instead.
