@@ -1,0 +1,16 @@
+\ProvidesPackage{presentation}
+
+\newlist{defins}{enumerate}{1}
+\newlist{postulates}{enumerate}{1}
+\newlist{commons}{enumerate}{1}
+
+\setlist[defins]{
+    label=\protect\hypertarget{defs-\arabic{section}.\arabic*}{\arabic*}.
+}
+
+\setlist[postulates]{
+    label=\protect\hypertarget{posts-\arabic*}{\arabic*}.
+}
+\setlist[commons]{
+    label=\protect\hypertarget{commons-\arabic*}{\arabic*}.
+}

@@ -9,8 +9,8 @@
 \usepackage{tikz}
 \usepackage{hyperref}
 \usepackage{python}
-\usepackage{style}
 \usepackage{float}
+\usepackage{style}
 
 \title{Elementarz Starożytnych Greków}
 \subtitle{Wybrane twierdzenia z ,,Elementów'' Euklidesa}
@@ -225,7 +225,7 @@ do naszych czasów --- znamy to dzieło wyłącznie z przekładów na język ara
         }.
 \end{postulates}
 
-\begin{figure}[!h]
+\begin{figure}[h!]
     \begin{center}
         \begin{tikzpicture}
             \draw (0,0) -- (10,2);
@@ -466,7 +466,7 @@ W trójkącie równoramiennym, kąty zawarte między podstawą, a ramionami\foot
 } są równe. Jeżeli przedłuży się ramiona trójkąta poza podstawę, to kąty
 zawarte między podstawą, a tymi przedłużonymi liniami także będą równe.
 
-\begin{figure}[!h]
+\begin{figure}[h!]
     \begin{center}
         \begin{tikzpicture}
             \begin{python}
@@ -506,8 +506,8 @@ Dany jest trójkąt \(ABC\).
     |CB|\), a \(|CG| = |CF|\), to \(\triangle CAG \cong \triangle CFB\),
     ponieważ dzielą one wspólny \(\measuredangle ACB\) \prop{1.4}. Jeżeli tak,
     to \(|\measuredangle BGA| = |\measuredangle AFB|\). Wobec tego \(\triangle
-    ABG \cong \triangle AFB\), ponieważ dzielą one wspólny bok \(AB\), a \(|AF|
-    = |BG|\) \prop{1.4}. Zatem \(|\measuredangle FAB| = |\measuredangle GBA|\),
+    ABG \cong \triangle AFB\), ponieważ dzielą one wspólny bok \(AB\), a \(|BF|
+    = |AG|\) \prop{1.4}. Zatem \(|\measuredangle FAB| = |\measuredangle GBA|\),
     a \(|\measuredangle BAG| = |\measuredangle ABF|\).
 
     Pokazano już, że \(\triangle CAG \cong \triangle CBF\), stąd
@@ -525,7 +525,7 @@ Dany jest trójkąt \(ABC\).
       wtedy}, gdy ma dwa kąty równej miary''.
   }.
 
-  \begin{figure}[!h]
+  \begin{figure}[h!]
       \begin{center}
           \begin{tikzpicture}
               \begin{python}
@@ -568,7 +568,7 @@ Wobec tego \(|AB| = |CB|\).
     to nie istnieje po tej same stronie prostej \(AB\) inny punkt \(D\), taki że
     \(|AC| = |AD|\) i \(|BC| = |BD|\).
 
-    \begin{figure}[!ht]
+    \begin{figure}[h!t]
         \begin{center}
             \begin{tikzpicture}
                 \begin{python}
@@ -596,7 +596,7 @@ draw_lines(c, d)
       \prop{1.5}. Ponadto \(|\measuredangle ADC| > |\measuredangle BDC|\)
       \common{5}. Podobnie \(|\measuredangle BCD| > |\measuredangle ACD|\)
       \common{5}. Wobec tego \(|\measuredangle BDC| \neq |\measuredangle BCD|\)
-      \common{1}, wobec czego \(\triangle ADB\) nie może być równoramienny
+      \common{1}, wobec czego \(\triangle BCD\) nie może być równoramienny
       \prop{1.5}. W związku z tym \(|BC| \neq |BD|\), co jest sprzeczne z
       założeniem.
     \end{proof}
@@ -607,7 +607,7 @@ draw_lines(c, d)
     odpowiednie kąty tych trójkątów także są równe, a trójkąty są wobec tego
     przystające\footnote{Patrz \prop{1.4}.}.
 
-    \begin{figure}[!ht]
+    \begin{figure}[h!t]
         \begin{center}
             \begin{tikzpicture}
                 \begin{python}
@@ -633,7 +633,7 @@ draw_lines(a, d, b)
     \end{figure}
 
     \begin{proof}
-        Niech \(|AB| = |DB|\), \(|AC| = |AF|\) i \(|CB| = |FE|\). Jeżeli zatem
+        Niech \(|AB| = |DE|\), \(|AC| = |AF|\) i \(|CB| = |FE|\). Jeżeli zatem
         \(\triangle DGE\) ma wszystkie boki równe bokom \(\triangle ABC\), to
         \(|DG| = |DF|\) i \(|EG| = |EF|\). W takim razie punkty \(F\) i \(G\)
         muszą być tym samym punktem \prop{1.7}.
@@ -644,7 +644,7 @@ draw_lines(a, d, b)
     Możliwe jest skonstruowanie prostej, która dzieli dany kąt prostoliniowy
     na dwa równe kąty. Taką prostą nazywamy \bold{dwusieczną} kąta.
 
-    \begin{figure}[!ht]
+    \begin{figure}[h!t]
         \begin{center}
             \begin{tikzpicture}
                 \begin{python}
@@ -702,7 +702,7 @@ draw_lines(a, f)
             \(D\); dzieli on odcinek \(AB\) na dwie równe części.
     \end{enumerate}
 
-    \begin{figure}[!h]
+    \begin{figure}[h!]
         \begin{center}
             \begin{tikzpicture}
                 \begin{python}
@@ -833,7 +833,7 @@ d.draw_dot()
     każdej z nich] dwa kąty proste lub [dwa kąty w sumie] równe dwóm kątom
     prostym.
 
-    \begin{figure}[!h]
+    \begin{figure}[h!]
         \begin{center}
             \begin{tikzpicture}
                 \begin{python}
@@ -913,7 +913,7 @@ draw_lines(a, e)
     z nią kąty, których suma jest równa dwóm kątom prostym, to te dwie proste
     linie przedłużają się wzajemnie.
 
-    \begin{figure}[!h]
+    \begin{figure}[h!]
         \begin{center}
             \begin{tikzpicture}
                 \begin{python}
@@ -956,7 +956,7 @@ draw_lines(a, b, e)
     Jeżeli dwie proste linie przecinają się, to przeciwległe kąty zawarte
     między nimi są równe.
 
-    \begin{figure}[!h]
+    \begin{figure}[h!]
         \begin{center}
             \begin{tikzpicture}
                 \begin{python}
@@ -998,7 +998,7 @@ draw_lines(c, d)
     zawarty między tym przedłużeniem, a sąsiednim bokiem trójkąta jest zawsze
     większy od każdego z przeciwległych kątów w tym trójkącie.
 
-    \begin{figure}[!h]
+    \begin{figure}[h!]
         \begin{center}
           \begin{tikzpicture}
               \begin{python}
@@ -1048,7 +1048,7 @@ draw_lines(b, e, f, c)
     W każdym trójkącie suma dwóch dowolnych jego kątów jest mniejsza od dwóch
     kątów prostych.
 
-    \begin{figure}[!h]
+    \begin{figure}[h!]
         \begin{center}
             \begin{tikzpicture}
                 \begin{python}
@@ -1088,7 +1088,7 @@ draw_lines(d, c, a, b, c)
         paribus}), tym większy kąt naprzeciw niego''.
     }.
 
-    \begin{figure}[!h]
+    \begin{figure}[h!]
         \begin{center}
             \begin{tikzpicture}
                 \begin{python}
@@ -1119,7 +1119,7 @@ draw_lines(b, d, a, b, c, d)
 \begin{theorem}
     W każdym trójkącie, większy kąt znajduje się naprzeciw dłuższego boku.
 
-    \begin{figure}[!h]
+    \begin{figure}[h!]
         \begin{center}
             \begin{tikzpicture}
                 \begin{python}
@@ -1157,7 +1157,7 @@ Polygon(a, b, c).draw()
     W każdym trójkącie łączna długość dwóch dowolnych boków jest większa od
     dlugości trzeciego boku.
 
-    \begin{figure}[!h]
+    \begin{figure}[h!]
         \begin{center}
             \begin{tikzpicture}
                 \begin{python}
